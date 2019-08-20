@@ -2,7 +2,7 @@ import React from 'react';
 
 const Palette = () => {
   return (
-    <section>
+    <section className='current-palette'>
       <div>Palette 1</div>
       <div>Palette 2</div>
       <div>Palette 3</div>

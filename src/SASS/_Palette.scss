@@ -1,0 +1,16 @@
+.current-palette {
+  margin: auto;
+  width: 95%;
+  & div {
+    display: inline-block;
+    height: 150px;
+    width: 19%;
+    border: 1px solid black;
+  }
+  & button {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    height: 40px;
+  }
+}
