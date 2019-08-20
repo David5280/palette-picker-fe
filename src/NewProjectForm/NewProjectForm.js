@@ -4,9 +4,13 @@ export class NewProjectForm extends Component {
   render() {
     return (
       <form>
-        <label for='new-project-name'>Create a new project:</label>
+        <label htmlFor='new-project-name'>Create a new project:</label>
         <div>
-          <input type='text' placeholder='New Project Name...' />
+          <input 
+            type='text' 
+            placeholder='New Project Name...'
+            id='new-project-name' 
+          />
           <button>Save Project</button>
         </div>
       </form>

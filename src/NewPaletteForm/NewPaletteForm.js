@@ -13,7 +13,7 @@ export class NewPaletteForm extends Component {
   }
   render() {
     return (
-      <form>
+      <form className='new-palette-form'>
         <select>
           <option>Palette 1</option>
           <option>Palette 2</option>
@@ -22,6 +22,7 @@ export class NewPaletteForm extends Component {
         <input 
           type='text' 
           placeholder='Palette Name'
+          className='new-palette-form'
           name='paletteName' 
         />
         <button>Save Palette</button>

@@ -3,7 +3,6 @@ import Palette from '../Palette/Palette';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
 import NewProjectForm from '../NewProjectForm/NewProjectForm';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
-import './App.css';
 
 function App() {
   return (
