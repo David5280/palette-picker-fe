@@ -11,8 +11,8 @@ function App() {
         <h1>Palette! Picker</h1>
       </header>
       <main>
-          <Palette />
-          <NewPaletteForm />
+        <Palette />
+        <NewPaletteForm />
         <NewProjectForm />
         <ProjectContainer />
       </main>
