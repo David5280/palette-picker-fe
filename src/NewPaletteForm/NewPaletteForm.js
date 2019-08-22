@@ -21,8 +21,8 @@ export class NewPaletteForm extends Component {
         </select>
         <input 
           type='text' 
-          placeholder='Palette Name'
-          className='new-palette-input'
+          placeholder='Palette Name...'
+          className='new-palette-input palette-name-input'
           name='paletteName' 
         />
         <button className='new-palette-input'>Save Palette</button>

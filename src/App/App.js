@@ -1,6 +1,6 @@
 import React from 'react';
 import Palette from '../Palette/Palette';
-import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
+// import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
 // import NewProjectForm from '../NewProjectForm/NewProjectForm';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 
@@ -12,7 +12,7 @@ function App() {
       </header>
       <main>
           <Palette />
-          <NewPaletteForm />
+          {/* <NewPaletteForm /> */}
         {/* <NewProjectForm /> */}
         <ProjectContainer />
       </main>
