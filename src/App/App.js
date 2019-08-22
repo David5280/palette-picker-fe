@@ -12,6 +12,9 @@ function App() {
           <Palette />
         <ProjectContainer />
       </main>
+      <footer>
+        <p>Follow us on the interwebs, nerd.</p>
+      </footer>
     </div>
   );
 }
