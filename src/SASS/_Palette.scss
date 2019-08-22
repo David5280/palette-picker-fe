@@ -2,22 +2,22 @@
   align-items: center;
   background-color: #f1f1f1;
   border-radius: 5px;
-  border: 2px solid black;
-  box-shadow: 1px 0px 3px;
+  border: 3px solid black;
+  box-shadow: 0px 0px 15px;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  font-family: sans-serif;
+  height: 500px;
   margin: 20px auto;
   max-width: 1500px;
   min-width: 700px;
   width: 90%;
-  & div {
-    background-color: white;
+  & .single-color {
+    border-bottom: 2px solid black;
     border-top: none;
-    border: 1px solid black;
     display: inline-block;
     height: 300px;
-    width: 19%;
+    width: 20%;
   }
   & .generate-btn {
     border-radius: 5px;
@@ -28,9 +28,23 @@
     width: 200px;
   }
 }
+.customize-palette-input {
+  border-radius: 5px;
+  border: 1px solid black;
+  height: 30px;
+  margin: 0px 5px;
+  padding: 5px;
+  width: 100px;
+}
+
+.customize-generator {
+  display: flex;
+  font-size: 10px;
+  margin-top: auto;
+}
 
 .palette-container {
-  width: 90%;
+  width: 100%;
 }
 
 .palette-container-controls {
