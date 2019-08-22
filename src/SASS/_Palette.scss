@@ -2,23 +2,22 @@
   align-items: center;
   background-color: #f1f1f1;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 3px solid black;
   box-shadow: 0px 0px 15px;
   display: flex;
-  font-family: sans-serif;
   flex-direction: column;
+  font-family: sans-serif;
   height: 500px;
   margin: 20px auto;
   max-width: 1500px;
   min-width: 700px;
   width: 90%;
-  & div {
+  & .single-color {
+    border-bottom: 2px solid black;
     border-top: none;
-    border: 1px solid black;
     display: inline-block;
     height: 300px;
-    width: 19%;
-    margin-top: 20px;
+    width: 20%;
   }
   & .generate-btn {
     border-radius: 5px;
@@ -39,9 +38,9 @@
 }
 
 .customize-generator {
-  margin-top: auto;
   display: flex;
   font-size: 10px;
+  margin-top: auto;
 }
 
 .palette-container {

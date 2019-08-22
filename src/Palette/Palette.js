@@ -8,49 +8,114 @@ class Palette extends Component {
     this.state = {
       colorScheme:'triade',
       colorVariation:'soft',
-      swap:true
+      update:false,
+      colors:[
+        {
+        color: 'fff',
+        locked: false
+        },
+        {
+        color: '000',
+        locked: false
+        },
+        {
+        color: 'fff',
+        locked: false
+        },
+        {
+        color: '000',
+        locked: false
+        },
+        {
+        color: 'fff',
+        locked: false
+        }
+      ]
     }
   }
-  componentDidUpdate() {
-    this.makeRandomColors()
+
+  componentDidMount() {
+    let random = this.makeRandomColors()
+      this.setState({colors:random.map((genCol, i) => {
+        if(!this.state.colors[i].locked) {
+          return {color:genCol}
+        }
+      })
+    })
   };
-  updateState = () => {
-    this.setState({swap: false})
-  };
+
+  // componentDidUpdate() {
+  //   let random = this.makeRandomColors()
+  //   this.setState({colors:random.map((genCol, i) => {
+  //     if(!this.state.colors[i].locked) {
+  //       return {color:genCol}
+  //     }
+  //   })
+  // })
+  // }
+
+  fakeState =() => {
+    this.setState({update: !this.state.update})
+  }
+
+
   handleChange =(e) => {
     this.setState({[e.target.name]:e.target.value})
   };
-  makeRandomColors = () => {
-    const randomHue = (Math.random() * (100 - 1) + 1)
+
+  makeRandomColors = (max) => {
+    const randomHue = (Math.random() * (360 - 1) + 1)
     const scheme = new ColorScheme();
     scheme.from_hue(randomHue)
-      .scheme(this.state.colorScheme)
+      .scheme(this.state.colorScheme) 
       .variation(this.state.colorVariation)
     let colors = scheme.colors();
-  
-  return colors.map((color, i) => {
-    let divStyle ={
-      backgroundColor: `#${color}`
-    }
-    if(i < 5) {
+    let firstFiveColors = colors.slice(0,5)
+    return firstFiveColors
+  }
+
+  lockColor = (i) => {
+    console.log(i)
+  //   this.setState({colors: this.state.colors.map((ele, inc) => {
+  //     if(ele[inc]===i) {
+  //       console.log(ele)
+  //       return {...ele, locked:!ele.locked}
+  //     }
+  //   })
+  // })
+  }
+
+  colorStuff = () => {
+    return this.state.colors.map((color, i) => {
+      let divStyle ={
+        backgroundColor: `#${color.color}`
+      }
+      console.log(color.color)
       return (
         <div 
           style={divStyle} 
-          className=''
+          className='single-color'
           key={i}
         >
-          <p>Color {i + 1}: </p>
-          <p>#{color.toUpperCase()}</p>
+          <button
+          onClick={() => this.lockColor(i)}
+          >
+            Lock Color
+          </button>
+        <p>Color {i + 1}: </p>
+        <p>{color.color.toUpperCase()}</p>
         </div>
       ) 
-    }
-  })
+    })
   }
+
   render() {
     return (
       <section className='palettes'>
         <section className='palette-container'>
-          {this.makeRandomColors()}
+          <div className='palette-border-div'>
+            {this.colorStuff()}
+          </div>
         </section>
         <section className='customize-generator'>
           <article>
@@ -82,7 +147,7 @@ class Palette extends Component {
           </article>
         </section>
         <section className='palette-container-controls'>
-          <button className='generate-btn' onClick={() => this.updateState()}>Generate new Palette!</button>
+          <button className='generate-btn' onClick={() => this.fakeState()}>Generate new Palette!</button>
           <NewPaletteForm />
         </section>
       </section>
