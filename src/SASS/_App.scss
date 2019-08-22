@@ -1,0 +1,14 @@
+.App {
+  background-color: $paper;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  min-width: 720px;
+  text-align: center;
+  width: 100%;
+}
+
+main {
+  padding: 20px;
+}
