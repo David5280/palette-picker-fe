@@ -6,18 +6,18 @@
   box-shadow: 1px 0px 3px;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 500px;
   margin: 20px auto;
   max-width: 1500px;
   min-width: 700px;
   width: 90%;
   & div {
-    background-color: white;
     border-top: none;
     border: 1px solid black;
     display: inline-block;
     height: 300px;
     width: 19%;
+    margin-top: 20px;
   }
   & .generate-btn {
     border-radius: 5px;
@@ -29,8 +29,12 @@
   }
 }
 
+.customize-generator {
+  margin-top: auto;
+}
+
 .palette-container {
-  width: 90%;
+  width: 100%;
 }
 
 .palette-container-controls {
