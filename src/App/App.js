@@ -1,19 +1,19 @@
 import React from 'react';
 import Palette from '../Palette/Palette';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
-import NewProjectForm from '../NewProjectForm/NewProjectForm';
+// import NewProjectForm from '../NewProjectForm/NewProjectForm';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
         <h1>Palette! Picker</h1>
       </header>
       <main>
           <Palette />
           <NewPaletteForm />
-        <NewProjectForm />
+        {/* <NewProjectForm /> */}
         <ProjectContainer />
       </main>
     </div>
