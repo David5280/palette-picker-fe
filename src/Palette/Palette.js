@@ -12,7 +12,7 @@ const Palette = () => {
         <div>Palette 5</div>
       </section>
       <section className='palette-container-controls'>
-        <button>Generate new Palette!</button>
+        <button className='generate-btn'>Generate new Palette!</button>
         <NewPaletteForm />
       </section>
     </section>
