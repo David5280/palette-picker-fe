@@ -27,23 +27,23 @@ class Palette extends Component {
     scheme.from_hue(randomHue)
       .scheme(this.state.colorScheme) 
       .variation(this.state.colorVariation)
-      let colors = scheme.colors();
-      let firstFiveColors = colors.slice(0,5)
+    let colors = scheme.colors();
+    let firstFiveColors = colors.slice(0,5)
     return firstFiveColors
   }
+  mapColors = () => {
+    return this.makeRandomColors().map((color, i) => {
+      return (
+        <Color hexcode={color} index={i}/>
+      ) 
+    })
+  }
   render() {
-    const mapColors = {
-      this.makeRandomColors().map((color, i) => {
-        return (
-          <Color hexcode={color} index={i}/>
-        ) 
-      })
-    }
     return (
       <section className='palettes'>
         <section className='palette-container'>
           <div className='palette-border-div'>
-            {this.mapColors}
+            {this.mapColors()}
           </div>
         </section>
         <section className='customize-generator'>
