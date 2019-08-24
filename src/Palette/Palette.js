@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ColorScheme from 'color-scheme';
+import Color from '../Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
 
 class Palette extends Component {
@@ -9,50 +10,12 @@ class Palette extends Component {
       colorScheme:'triade',
       colorVariation:'soft',
       update:false,
-      colors:[
-        {
-        color: 'fff',
-        locked: false
-        },
-        {
-        color: '000',
-        locked: false
-        },
-        {
-        color: 'fff',
-        locked: false
-        },
-        {
-        color: '000',
-        locked: false
-        },
-        {
-        color: 'fff',
-        locked: false
-        }
-      ]
     }
   }
 
   componentDidMount() {
-    let random = this.makeRandomColors()
-      this.setState({colors:random.map((genCol, i) => {
-        if(!this.state.colors[i].locked) {
-          return {color:genCol}
-        }
-      })
-    })
-  };
 
-  // componentDidUpdate() {
-  //   let random = this.makeRandomColors()
-  //   this.setState({colors:random.map((genCol, i) => {
-  //     if(!this.state.colors[i].locked) {
-  //       return {color:genCol}
-  //     }
-  //   })
-  // })
-  // }
+  };
 
   fakeState =() => {
     this.setState({update: !this.state.update})
@@ -73,48 +36,12 @@ class Palette extends Component {
     let firstFiveColors = colors.slice(0,5)
     return firstFiveColors
   }
-
-  lockColor = (i) => {
-    console.log(i)
-  //   this.setState({colors: this.state.colors.map((ele, inc) => {
-  //     if(ele[inc]===i) {
-  //       console.log(ele)
-  //       return {...ele, locked:!ele.locked}
-  //     }
-  //   })
-  // })
-  }
-
-  colorStuff = () => {
-    return this.state.colors.map((color, i) => {
-      let divStyle ={
-        backgroundColor: `#${color.color}`
-      }
-      console.log(color.color)
-      return (
-        <div 
-          style={divStyle} 
-          className='single-color'
-          key={i}
-        >
-          <button
-          onClick={() => this.lockColor(i)}
-          >
-            Lock Color
-          </button>
-        <p>Color {i + 1}: </p>
-        <p>{color.color.toUpperCase()}</p>
-        </div>
-      ) 
-    })
-  }
-
   render() {
     return (
       <section className='palettes'>
         <section className='palette-container'>
           <div className='palette-border-div'>
-            {this.colorStuff()}
+            <Color colors={this.makeRandomColors()} />
           </div>
         </section>
         <section className='customize-generator'>
