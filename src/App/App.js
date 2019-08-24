@@ -5,15 +5,7 @@ import ProjectContainer from '../ProjectContainer/ProjectContainer';
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {
-      colors: {
-        color_1: '',
-        color_2: '',
-        color_3: '',
-        color_4: '',
-        color_5: '',
-      }
-    }
+    this.state = {}
   }
 
   setColors = (colors) => {
@@ -26,7 +18,7 @@ class App extends React.Component {
           <h1>Palette! Picker</h1>
         </header>
         <main>
-            <Palette setColors={this.setColors}/>
+            <Palette />
           <ProjectContainer />
         </main>
         <footer>
