@@ -9,13 +9,13 @@ class Palette extends Component {
     this.state = {
       colorScheme:'triade',
       colorVariation:'soft',
+      colors:[]
     }
   }
 
   componentDidMount() {
-
-  };
-
+    this.makeRandomColors()
+  }
 
   handleChange =(e) => {
     this.setState({[e.target.name]:e.target.value})
@@ -29,21 +29,22 @@ class Palette extends Component {
       .variation(this.state.colorVariation)
       let colors = scheme.colors();
       let firstFiveColors = colors.slice(0,5)
+      this.setState({colors:firstFiveColors})
     return firstFiveColors
   }
+
+  mapColors = () => {
+    return this.state.colors.map((color, i) => {
+      return <Color hexcode={color} index={i} />
+    })
+  }
+
   render() {
-    const mapColors = {
-      this.makeRandomColors().map((color, i) => {
-        return (
-          <Color hexcode={color} index={i}/>
-        ) 
-      })
-    }
     return (
       <section className='palettes'>
         <section className='palette-container'>
           <div className='palette-border-div'>
-            {this.mapColors}
+            {this.mapColors()}
           </div>
         </section>
         <section className='customize-generator'>
@@ -76,7 +77,7 @@ class Palette extends Component {
           </article>
         </section>
         <section className='palette-container-controls'>
-          <button className='generate-btn' onClick={() => this.mapColors()}>Generate new Palette!</button>
+          <button className='generate-btn' onClick={() => this.makeRandomColors()}>Generate new Palette!</button>
           <NewPaletteForm />
         </section>
       </section>

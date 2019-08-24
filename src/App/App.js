@@ -18,7 +18,7 @@ class App extends React.Component {
           <h1>Palette! Picker</h1>
         </header>
         <main>
-            <Palette />
+          <Palette />
           <ProjectContainer />
         </main>
         <footer>

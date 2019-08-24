@@ -8,17 +8,32 @@ export class Color extends Component {
       isLocked: false
     }
   }
+
   componentDidMount = () => {
     if (!this.state.isLocked) {
       this.setState({ color: this.props.hexcode })
     }
   }
+
+  static getDerivedStateFromProps(props, state) {
+    // Check to see if the component isLocked
+    if (!state.isLocked) {
+      // if isLocked is false set the states color to the hexcode 
+      // passed in by props
+      return {
+        color: props.hexcode,
+      };
+    }
+    // Return null if the state hasn't changed
+    return null;
+  }
+
   render() {
     return (
       <div 
         className='single-color'
         style= {
-          {backgroundColor: `#${this.props.hexcode}`}
+          {backgroundColor: `#${this.state.color}`}
         }
       >
         <button
@@ -27,7 +42,7 @@ export class Color extends Component {
           Lock Color
         </button>
       <p>Color {this.props.index + 1}: </p>
-      <p>{this.props.hexcode.toUpperCase()}</p>
+      <p>#{this.state.color.toUpperCase()}</p>
       </div>
     ) 
   }
