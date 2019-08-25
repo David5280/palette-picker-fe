@@ -6,20 +6,9 @@ import { storePalette, changeScheme } from '../actions'
 import { connect } from 'react-redux';
 
 class Palette extends Component {
-  // constructor() {
-  //   super() 
-  //   this.state = {
-  //     colorScheme:'triade',
-  //     colorVariation:'soft',
-  //     colors:[],
-  //     isLocked_1:false,
-  //     isLocked_2:false,
-  //     isLocked_3: false,
-  //     isLocked_4: false,
-  //     isLocked_5: false,
-  //   }
-  // }
-
+  state = {
+    lockedColors: []
+  }
   componentDidMount() {
     this.makeRandomColors()
   }
@@ -38,31 +27,24 @@ class Palette extends Component {
       let colors = colorScheme.colors();
       let firstFiveColors = colors.slice(0,5)
       storePalette(firstFiveColors)
-      // storePalette(firstFiveColors)
-      // this.setState({colors:firstFiveColors})
-      // firstFiveColors.map((randomColor, i)=> {
-      //   let stateNum = `color_${i+1}`
-      //   let lockedNum = `isLocked_${i+1}`
-        // if(!this.state[lockedNum]) {
-        //   this.setState({[stateNum]:randomColor})
-        // }
-      // })
-    // return firstFiveColors
   }
 
   mapColors = () => {
     const { colors } = this.props;
     return colors.map((color, i) => {
-      return <Color hexcode={color} index={i} />
+      return <Color hexcode={color} index={i} handleLock={this.handleLock}/>
     })
   }
 
-  // setColors = (color, index, locked) => {
-  //   let lockedIndex = `isLocked_${index}`
-  //   console.log(color, index, locked)
-  //   this.setState({['color_'+index]:color, [lockedIndex]: this.state[lockedIndex]})
-  //   console.log(color, index, locked)
-  // }
+  handleLock = hexcode => {
+    const currentLocked = this.state.lockedColors
+    if (currentLocked.includes(hexcode)) {
+      const filteredColors = this.state.lockedColors.filter(color => color !== hexcode)
+      this.setState({ lockedColors: filteredColors })
+    } else {
+      this.setState({ lockedColors:  [...currentLocked, hexcode]})
+    }
+  }
 
   render() {
     return (
