@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import { paletteReducer } from './paletteReducer'
-import { projectReducer } from './projectsReducer'
-import { isLoadingReducer } from './isLoadingReducer'
+import { projectsReducer } from './projectsReducer'
+import { loadingReducer } from './loadingReducer'
 import { errorReducer } from './errorReducer'
 
-export const rootRecucer = combineReducers({
+export const rootReducer = combineReducers({
   palettes: paletteReducer,
-  projects:projectReducer,
-  isLoading: isLoadingReducer,
+  projects:projectsReducer,
+  isLoading: loadingReducer,
   hasErrored: errorReducer
 })
