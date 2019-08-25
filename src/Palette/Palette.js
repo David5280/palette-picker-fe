@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import ColorScheme from 'color-scheme';
 import Color from '../Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
+import { storePalette, changeScheme } from '../actions'
+import { connect } from 'react-redux';
 
 class Palette extends Component {
-  constructor() {
-    super() 
-    this.state = {
-      colorScheme:'triade',
-      colorVariation:'soft',
-      colors:[],
-      isLocked_1:false,
-      isLocked_2:false,
-      isLocked_3: false,
-      isLocked_4: false,
-      isLocked_5: false,
-    }
-  }
+  // constructor() {
+  //   super() 
+  //   this.state = {
+  //     colorScheme:'triade',
+  //     colorVariation:'soft',
+  //     colors:[],
+  //     isLocked_1:false,
+  //     isLocked_2:false,
+  //     isLocked_3: false,
+  //     isLocked_4: false,
+  //     isLocked_5: false,
+  //   }
+  // }
 
   componentDidMount() {
     this.makeRandomColors()
@@ -27,26 +29,30 @@ class Palette extends Component {
   };
 
   makeRandomColors = (max) => {
+    const { scheme, variation, storePalette } = this.props;
     const randomHue = (Math.random() * (360 - 1) + 1)
-    const scheme = new ColorScheme();
-    scheme.from_hue(randomHue)
-      .scheme(this.state.colorScheme) 
-      .variation(this.state.colorVariation)
-      let colors = scheme.colors();
+    const colorScheme = new ColorScheme();
+    colorScheme.from_hue(randomHue)
+      .scheme(scheme) 
+      .variation(variation)
+      let colors = colorScheme.colors();
       let firstFiveColors = colors.slice(0,5)
-      this.setState({colors:firstFiveColors})
-      firstFiveColors.map((randomColor, i)=> {
-        let stateNum = `color_${i+1}`
-        let lockedNum = `isLocked_${i+1}`
-        if(!this.state[lockedNum]) {
-          this.setState({[stateNum]:randomColor})
-        }
-      })
-    return firstFiveColors
+      storePalette(firstFiveColors)
+      // storePalette(firstFiveColors)
+      // this.setState({colors:firstFiveColors})
+      // firstFiveColors.map((randomColor, i)=> {
+      //   let stateNum = `color_${i+1}`
+      //   let lockedNum = `isLocked_${i+1}`
+        // if(!this.state[lockedNum]) {
+        //   this.setState({[stateNum]:randomColor})
+        // }
+      // })
+    // return firstFiveColors
   }
 
   mapColors = () => {
-    return this.state.colors.map((color, i) => {
+    const { colors } = this.props;
+    return colors.map((color, i) => {
       return <Color hexcode={color} index={i} setColors={this.setColors}/>
     })
   }
@@ -63,7 +69,7 @@ class Palette extends Component {
       <section className='palettes'>
         <section className='palette-container'>
           <div className='palette-border-div'>
-            {this.mapColors()}
+            {/* {this.mapColors()} */}
           </div>
         </section>
         <section className='customize-generator'>
@@ -104,4 +110,19 @@ class Palette extends Component {
   }
 }
 
-export default Palette;
+export const mapStateToProps = state => {
+  return {
+    scheme: state.palettes.colorScheme,
+    variation: state.palettes.colorVariation,
+    colors: state.palettes.colors
+  }
+};
+
+export const mapDispatchToProps = dispatch => ({
+  storePalette: palette => dispatch(storePalette(palette))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Palette);
