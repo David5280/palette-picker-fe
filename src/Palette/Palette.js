@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import ColorScheme from 'color-scheme';
 import Color from '../Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
-import { storePalette, changeScheme } from '../actions'
+import { storePalette, changeScheme, changeVariation } from '../actions'
 import { connect } from 'react-redux';
 
 class Palette extends Component {
   state = {
     lockedColors: []
-  }
+  };
   componentDidMount() {
     this.makeRandomColors()
-  }
-
-  handleChange =(e) => {
-    this.setState({[e.target.name]:e.target.value})
   };
 
-  makeRandomColors = (max) => {
+  changeScheme =(e) => {
+    this.props.changeScheme(e.target.value)
+  };
+
+  makeRandomColors = () => {
     const { scheme, variation, storePalette } = this.props;
     const randomHue = (Math.random() * (360 - 1) + 1)
     const colorScheme = new ColorScheme();
@@ -29,7 +29,7 @@ class Palette extends Component {
       const colorsToDisplay = this.state.lockedColors.length ?this.checkLockedColors(firstFiveColors) :
       firstFiveColors
       storePalette(colorsToDisplay)
-  }
+  };
 
   checkLockedColors = (newPalette) => {
     return newPalette.map((newColor, i) => {
@@ -38,17 +38,11 @@ class Palette extends Component {
         return oldColor
       } else {
         return newColor
-      }
-    })
-  }
+      };
+    });
+  };
 
-  mapColors = () => {
-    const { colors } = this.props;
-    return colors.map((color, i) => {
-      return <Color hexcode={color} index={i} handleLock={this.handleLock}/>
-    })
-  }
-
+  
   handleLock = hexcode => {
     const currentLocked = this.state.lockedColors
     if (currentLocked.includes(hexcode)) {
@@ -56,8 +50,15 @@ class Palette extends Component {
       this.setState({ lockedColors: filteredColors })
     } else {
       this.setState({ lockedColors:  [...currentLocked, hexcode]})
-    }
-  }
+    };
+  };
+
+  mapColors = () => {
+    const { colors } = this.props;
+    return colors.map((color, i) => {
+      return <Color hexcode={color} index={i} handleLock={this.handleLock}/>
+    });
+  };
 
   render() {
     return (
@@ -73,7 +74,7 @@ class Palette extends Component {
             <select 
               className='customize-palette-input' 
               name="colorScheme" 
-              onChange={(e) => this.handleChange(e)}
+              onChange={(e) => this.props.changeScheme(e.target.value)}
             >
               <option value="triade">Triade</option>
               <option value="contrast">Contrast</option>
@@ -85,7 +86,7 @@ class Palette extends Component {
             <select 
               className='customize-palette-input'
               name="colorVariation" 
-              onChange={(e)=> this.handleChange(e)}
+              onChange={(e)=> this.props.changeVariation(e.target.value)}
             >
               <option value="default">Default</option>
               <option value="pastel">Pastel</option>
@@ -114,7 +115,10 @@ export const mapStateToProps = state => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  storePalette: palette => dispatch(storePalette(palette))
+  storePalette: palette => dispatch(storePalette(palette)),
+  changeScheme: scheme => dispatch(changeScheme(scheme)),
+  changeVariation: variation => dispatch(changeVariation(variation)),
+
 })
 
 export default connect(
