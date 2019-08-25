@@ -26,7 +26,20 @@ class Palette extends Component {
       .variation(variation)
       let colors = colorScheme.colors();
       let firstFiveColors = colors.slice(0,5)
-      storePalette(firstFiveColors)
+      const colorsToDisplay = this.state.lockedColors.length ?this.checkLockedColors(firstFiveColors) :
+      firstFiveColors
+      storePalette(colorsToDisplay)
+  }
+
+  checkLockedColors = (newPalette) => {
+    return newPalette.map((newColor, i) => {
+      const oldColor = this.props.colors[i]
+      if(this.state.lockedColors.includes(oldColor)) {
+        return oldColor
+      } else {
+        return newColor
+      }
+    })
   }
 
   mapColors = () => {
