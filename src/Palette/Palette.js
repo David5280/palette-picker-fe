@@ -13,22 +13,19 @@ class Palette extends Component {
     this.makeRandomColors()
   };
 
-  changeScheme =(e) => {
-    this.props.changeScheme(e.target.value)
-  };
-
+  
   makeRandomColors = () => {
     const { scheme, variation, storePalette } = this.props;
     const randomHue = (Math.random() * (360 - 1) + 1)
     const colorScheme = new ColorScheme();
     colorScheme.from_hue(randomHue)
-      .scheme(scheme) 
-      .variation(variation)
-      let colors = colorScheme.colors();
-      let firstFiveColors = colors.slice(0,5)
-      const colorsToDisplay = this.state.lockedColors.length ?this.checkLockedColors(firstFiveColors) :
-      firstFiveColors
-      storePalette(colorsToDisplay)
+    .scheme(scheme) 
+    .variation(variation)
+    let colors = colorScheme.colors();
+    let firstFiveColors = colors.slice(0,5)
+    const colorsToDisplay = this.state.lockedColors.length ?this.checkLockedColors(firstFiveColors) :
+    firstFiveColors
+    storePalette(colorsToDisplay)
   };
 
   checkLockedColors = (newPalette) => {
