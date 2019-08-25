@@ -1,5 +1,5 @@
 //dynamic fetch call 
-export const serverCall = (path, verb, content) => {
+export const serverCall = async (path, verb, content) => {
   // first send in the path: projects or palettes
   // can send in the id if selecting one
   // e.g path = project or project/1

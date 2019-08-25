@@ -22,9 +22,10 @@ describe('fetchCalls', () => {
 
     it('HAPPY: Should call the fetch with the correct arguements', async () => {
       const mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/projects`
+      const options = { "body": "\"\"", "headers": { "Content-Type": "application/json" }, "method": "GET" }
       const mockPath = 'projects'
       await serverCall(mockPath);
-      expect(window.fetch).toHaveBeenCalledWith(mockUrl);
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl, options);
     });
 
     it('HAPPY: Should return all the projects', async () => {
@@ -48,9 +49,10 @@ describe('fetchCalls', () => {
 
     it('HAPPY: Should call the fetch with the correct arguments', async () => {
       const mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/palettes`
+      const options = { "body": "\"\"", "headers": { "Content-Type": "application/json" }, "method": "GET" }
       const mockPath = 'palettes'
       await serverCall(mockPath);
-      expect(window.fetch).toHaveBeenCalledWith(mockUrl);
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl, options);
     });
 
     it('HAPPY: should return all the palettes', async () => {
@@ -59,13 +61,14 @@ describe('fetchCalls', () => {
 
   })
 
-  describe('GET single Palette', async () => {
+  describe('GET single Palette', () => {
     
     it('HAPPY: Should call the fetch with the correct arguments', async () => {
-      const mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/palettes`
+      const mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/palettes/1`
+      const options = { "body": "\"\"", "headers": { "Content-Type": "application/json" }, "method": "GET" }
       const mockPath = 'palettes/1'
       await serverCall(mockPath);
-      expect(window.fetch).toHaveBeenCalledWith(mockUrl);
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl, options);
     });
 
     it('HAPPY:should find the single palette specified', () => {
