@@ -10,10 +10,10 @@ export class Color extends Component {
   }
 
   componentDidMount = () => {
-    if (!this.state.isLocked) {
-      this.setState({ color: this.props.hexcode })
-      this.props.setColors(this.state.color, (this.props.index+1), this.state.isLocked)
-    }
+    // if (!this.state.isLocked) {
+    //   this.setState({ color: this.props.hexcode })
+    //   this.props.setColors(this.state.color, (this.props.index+1), this.state.isLocked)
+    // }
   }
 
   sendColor(color, index, locked) {

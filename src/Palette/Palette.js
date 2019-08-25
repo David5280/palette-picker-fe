@@ -53,23 +53,23 @@ class Palette extends Component {
   mapColors = () => {
     const { colors } = this.props;
     return colors.map((color, i) => {
-      return <Color hexcode={color} index={i} setColors={this.setColors}/>
+      return <Color hexcode={color} index={i} />
     })
   }
 
-  setColors = (color, index, locked) => {
-    let lockedIndex = `isLocked_${index}`
-    console.log(color, index, locked)
-    this.setState({['color_'+index]:color, [lockedIndex]: this.state[lockedIndex]})
-    console.log(color, index, locked)
-  }
+  // setColors = (color, index, locked) => {
+  //   let lockedIndex = `isLocked_${index}`
+  //   console.log(color, index, locked)
+  //   this.setState({['color_'+index]:color, [lockedIndex]: this.state[lockedIndex]})
+  //   console.log(color, index, locked)
+  // }
 
   render() {
     return (
       <section className='palettes'>
         <section className='palette-container'>
           <div className='palette-border-div'>
-            {/* {this.mapColors()} */}
+            {this.props.colors && this.mapColors()}
           </div>
         </section>
         <section className='customize-generator'>
