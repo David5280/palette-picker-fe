@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 
 export class Color extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       color: '',
-      isLocked: false
+      isLocked:false,
     }
   }
 
   componentDidMount = () => {
     if (!this.state.isLocked) {
       this.setState({ color: this.props.hexcode })
+      this.props.setColors(this.state.color, (this.props.index+1), this.state.isLocked)
     }
+  }
+
+  sendColor(color, index, locked) {
+    this.setState({ isLocked: !this.state.isLocked })
+    this.props.setColors(color, (index+1), locked)
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -37,7 +43,7 @@ export class Color extends Component {
         }
       >
         <button
-        onClick={() => this.setState({ isLocked: !this.state.isLocked })}
+        onClick={() => this.sendColor(this.state.color, this.props.index, this.state.isLocked)}
         >
           Lock Color
         </button>

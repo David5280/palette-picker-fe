@@ -9,7 +9,12 @@ class Palette extends Component {
     this.state = {
       colorScheme:'triade',
       colorVariation:'soft',
-      colors:[]
+      colors:[],
+      isLocked_1:false,
+      isLocked_2:false,
+      isLocked_3: false,
+      isLocked_4: false,
+      isLocked_5: false,
     }
   }
 
@@ -30,13 +35,27 @@ class Palette extends Component {
       let colors = scheme.colors();
       let firstFiveColors = colors.slice(0,5)
       this.setState({colors:firstFiveColors})
+      firstFiveColors.map((randomColor, i)=> {
+        let stateNum = `color_${i+1}`
+        let lockedNum = `isLocked_${i+1}`
+        if(!this.state[lockedNum]) {
+          this.setState({[stateNum]:randomColor})
+        }
+      })
     return firstFiveColors
   }
 
   mapColors = () => {
     return this.state.colors.map((color, i) => {
-      return <Color hexcode={color} index={i} />
+      return <Color hexcode={color} index={i} setColors={this.setColors}/>
     })
+  }
+
+  setColors = (color, index, locked) => {
+    let lockedIndex = `isLocked_${index}`
+    console.log(color, index, locked)
+    this.setState({['color_'+index]:color, [lockedIndex]: this.state[lockedIndex]})
+    console.log(color, index, locked)
   }
 
   render() {
