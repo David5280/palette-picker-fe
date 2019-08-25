@@ -1,6 +1,7 @@
 {
   "name": "palette-picker-fe",
   "version": "0.1.0",
+  "homepage": "https://david5280.github.io/palette-picker-fe/",
   "private": true,
   "dependencies": {
     "color-scheme": "^1.0.1",
@@ -16,7 +17,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll",
+    "test": "jest --forceExit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "devTest": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +41,7 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "gh-pages": "^2.1.1",
     "react-alice-carousel": "^1.15.2"
   }
 }
