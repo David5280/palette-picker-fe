@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Color = (props) => {
-  const { hexcode, index, handleLock } = props;
+  const { hexcode, index, handleLock, icon } = props;
+  console.log(icon)
   return (
     <div 
       className='single-color'
@@ -9,13 +10,14 @@ const Color = (props) => {
         {backgroundColor: `#${hexcode}`}
       }
     >
-      <button
-      onClick={() => handleLock(hexcode) }
-      >
-        Lock Color
-      </button>
-    <p>Color {index + 1}: </p>
-    <p>#{hexcode.toUpperCase()}</p>
+      <p className='color-info'>Color {index + 1}: </p>
+      <p>#{hexcode.toUpperCase()}</p>
+      <img 
+        src={`${icon}`} 
+        alt='locked-icon' 
+        onClick={() => handleLock(hexcode)}
+        className='locked-icon color-info' 
+      />
     </div>
   ) 
 }
