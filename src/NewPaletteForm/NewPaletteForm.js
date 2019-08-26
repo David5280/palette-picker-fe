@@ -4,7 +4,6 @@ export class NewPaletteForm extends Component {
   constructor() {
     super()
     this.state = {
-      projectId: null,
       paletteName: ''
     }
   }
@@ -29,6 +28,7 @@ export class NewPaletteForm extends Component {
           placeholder='Palette Name...'
           className='new-palette-input palette-name-input'
           name='paletteName' 
+          onChange={(e) => this.handleChange(e)}
         />
         <button className='new-palette-input'>Save Palette</button>
       </form>

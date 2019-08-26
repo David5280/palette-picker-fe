@@ -3,7 +3,7 @@ import Palette from '../Palette/Palette';
 import ProjectContainer from '../ProjectContainer/ProjectContainer';
 import { serverCall } from '../fetchCalls/fetchCalls';
 import { connect } from 'react-redux';
-import { retrieveProjects, loadComplete } from '../actions';
+import { retrieveProjects, loadComplete, hasErrored } from '../actions';
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +17,8 @@ class App extends React.Component {
       await this.props.retrieveProjects(projects)
       await this.props.loadComplete()
     } catch (error) {
-      throw Error(error.message)
+      this.props.loadComplete()
+      this.props.hasErrored(error.message)
     }
   }
 
@@ -45,7 +46,8 @@ class App extends React.Component {
 
 export const mapDispatchToProps = dispatch => ({
   retrieveProjects: projects => dispatch(retrieveProjects(projects)),
-  loadComplete: () => dispatch(loadComplete())
+  loadComplete: () => dispatch(loadComplete()),
+  hasErrored: error => dispatch(hasErrored(error))
 });
 
 export default connect(null, mapDispatchToProps)(App);

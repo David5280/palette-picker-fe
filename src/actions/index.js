@@ -22,3 +22,8 @@ export const loadComplete = loading => ({
   type: 'LOAD_COMPLETE',
   loading
 });
+
+export const hasErrored = error => ({
+  type: 'HAS_ERRORED',
+  error
+});

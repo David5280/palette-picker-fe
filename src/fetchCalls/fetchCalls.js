@@ -16,6 +16,9 @@ export const serverCall = async (path, verb, content) => {
     };
   try {
     const response = await fetch(url, options)
+    if (!response.ok) {
+      throw new Error('There was an error retrieving projects at this time...')
+    }
     //URL gets passed in 
     const results = await response.json()
     return results
