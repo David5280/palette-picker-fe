@@ -2,7 +2,6 @@ import React from 'react'
 
 const Color = (props) => {
   const { hexcode, index, handleLock, icon } = props;
-  console.log(icon)
   return (
     <div 
       className='single-color'

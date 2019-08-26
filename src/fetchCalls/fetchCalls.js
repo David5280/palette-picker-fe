@@ -12,7 +12,7 @@ export const serverCall = async (path, verb, content) => {
       },
       //send in the content you wish to send in the body
       //leave empty for DELETE or generic GET
-        body: JSON.stringify(content || '')
+        body: JSON.stringify(content || undefined)
     };
   try {
     const response = await fetch(url, options)
