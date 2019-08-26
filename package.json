@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "homepage": "https://david5280.github.io/palette-picker-fe/",
   "private": true,
+    "jest": {
+      "verbose": true
+    },
   "dependencies": {
     "color-scheme": "^1.0.1",
     "eslint": "^6.2.2",

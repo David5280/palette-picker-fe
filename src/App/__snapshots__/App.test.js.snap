@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Project Container renders without crashing 1`] = `ShallowWrapper {}`;
-
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
