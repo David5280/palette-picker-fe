@@ -17,3 +17,8 @@ export const retrieveProjects = projects => ({
   type: 'RETRIEVE_PROJECTS',
   projects
 });
+
+export const loadComplete = loading => ({
+  type: 'LOAD_COMPLETE',
+  loading
+});
