@@ -8,8 +8,13 @@ export class NewPaletteForm extends Component {
       paletteName: ''
     }
   }
+  
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  colorCodes = () => {
+
   }
   render() {
     return (
