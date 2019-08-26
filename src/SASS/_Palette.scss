@@ -18,6 +18,8 @@
     display: inline-block;
     height: 300px;
     width: 20%;
+    animation-name: bounceIn;
+    animation-duration: 1s;
   }
   & .generate-btn {
     border-radius: 5px;
