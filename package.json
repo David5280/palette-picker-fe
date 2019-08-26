@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverageq",
+    "test": "react-scripts test",
     "devTest": "react-scripts test --watchAll --coverage",
     "coveralls": "react-scripts --coverage && cat ./tests/coverage/lcov.info | coveralls",
     "predeploy": "npm run build",
