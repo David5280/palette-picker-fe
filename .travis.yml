@@ -6,10 +6,11 @@ cache:
   - node_modules
 before_install:
   - npm update
+install:
+  - npm install
 script:
   - npm test
   - npm run build
-  - npm run coveralls
 deploy:
   provider: pages
   skip_cleanup: true
