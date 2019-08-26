@@ -4,7 +4,7 @@ import App from './App';
 import { shallow } from 'enzyme'
 
 describe('Project Container', () => {
-  
+
   it('renders without crashing', () => {
     let wrapper = shallow(<App />)
     expect(wrapper).toMatchSnapshot();
