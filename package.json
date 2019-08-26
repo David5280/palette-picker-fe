@@ -20,8 +20,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test":"react-scripts test --coverageq",
-    "devTest":"react-scripts test --watchAll --coverage",
+    "test": "react-scripts test --coverageq",
+    "devTest": "react-scripts test --watchAll --coverage",
+    "coveralls": "react-scripts --coverage && cat ./tests/coverage/lcov.info | coveralls",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
@@ -45,6 +46,7 @@
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.3.4",
-    "babel-jest": "^24.5.0"
+    "babel-jest": "^24.5.0",
+    "coveralls": "^3.0.6"
   }
 }

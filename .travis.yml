@@ -4,9 +4,12 @@ node_js:
 cache:
   directories:
   - node_modules
+before_install:
+  - npm update
 script:
   - npm test
   - npm run build
+  - npm run coveralls
 deploy:
   provider: pages
   skip_cleanup: true
