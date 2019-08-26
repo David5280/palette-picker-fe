@@ -4,6 +4,8 @@ import Color from '../Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
 import { storePalette, changeScheme, changeVariation } from '../actions'
 import { connect } from 'react-redux';
+import lockedIcon from '../images/locked.svg';
+import unlockedIcon from '../images/unlocked.svg';
 
 class Palette extends Component {
   state = {
@@ -53,7 +55,10 @@ class Palette extends Component {
   mapColors = () => {
     const { colors } = this.props;
     return colors.map((color, i) => {
-      return <Color hexcode={color} index={i} handleLock={this.handleLock}/>
+      const icon = this.state.lockedColors.includes(color) ?
+      lockedIcon :
+      unlockedIcon
+      return <Color hexcode={color} index={i} handleLock={this.handleLock} icon={icon}/>
     });
   };
 
