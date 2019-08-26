@@ -10,13 +10,13 @@ const Color = (props) => {
         {backgroundColor: `#${hexcode}`}
       }
     >
-      <p>Color {index + 1}: </p>
+      <p className='color-info'>Color {index + 1}: </p>
       <p>#{hexcode.toUpperCase()}</p>
       <img 
         src={`${icon}`} 
         alt='locked-icon' 
         onClick={() => handleLock(hexcode)}
-        className='locked-icon' 
+        className='locked-icon color-info' 
       />
     </div>
   ) 
