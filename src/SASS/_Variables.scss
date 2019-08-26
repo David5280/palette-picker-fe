@@ -17,3 +17,12 @@ $other: #62d6b0;
     transform: scale(1);
   }
 }
+
+@keyframes move {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
