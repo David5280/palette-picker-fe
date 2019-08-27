@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export class NewPaletteForm extends Component {
   constructor() {
     super()
     this.state = {
-      paletteName: ''
+      paletteName: '',
+      currentProjectId: 1
     }
   }
   
@@ -12,16 +14,19 @@ export class NewPaletteForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  colorCodes = () => {
+  allProjects = () => this.props.projects.map(project => {
+    return <option value={project.id}>{project.name}</option>
+  })
 
-  }
   render() {
     return (
       <form className='new-palette-form'>
-        <select className='new-palette-input'>
-          <option>Palette 1</option>
-          <option>Palette 2</option>
-          <option>Palette 3</option>
+        <select 
+          className='new-palette-input'
+          name='currentProjectId'
+          onChange={this.handleChange}
+        >
+          {this.allProjects()}
         </select>
         <input 
           type='text' 
@@ -36,4 +41,9 @@ export class NewPaletteForm extends Component {
   }
 }
 
-export default NewPaletteForm;
+export const mapStateToProps = state => ({
+  colors: state.palettes.colors,
+  projects: state.projects
+});
+
+export default connect(mapStateToProps)(NewPaletteForm);

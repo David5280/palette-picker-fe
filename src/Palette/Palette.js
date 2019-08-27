@@ -111,7 +111,8 @@ export const mapStateToProps = state => {
   return {
     scheme: state.palettes.colorScheme,
     variation: state.palettes.colorVariation,
-    colors: state.palettes.colors
+    colors: state.palettes.colors,
+    projects: state.projects
   }
 };
 
