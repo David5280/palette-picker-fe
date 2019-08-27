@@ -27,27 +27,32 @@ export class SingleProject extends Component {
         {
           paletteID: palette.id,
           paletteName: palette.name,
-          color: palette.color_1
+          color: palette.color_1,
+          dbKey: 'color_1'
         },
         {
           paletteID: palette.id,
           paletteName: palette.name,
-          color: palette.color_2
+          color: palette.color_2,
+          dbKey: 'color_2'
         },
         {
           paletteID: palette.id,
           paletteName: palette.name,
-          color: palette.color_3
+          color: palette.color_3,
+          dbKey: 'color_3'
         },
         {
           paletteID: palette.id,
           paletteName: palette.name,
-          color: palette.color_4
+          color: palette.color_4,
+          dbKey: 'color_4'
         },
         {
           paletteID: palette.id,
           paletteName: palette.name,
-          color: palette.color_5
+          color: palette.color_5,
+          dbKey: 'color_5'
         }
       ]
       return (
@@ -55,7 +60,7 @@ export class SingleProject extends Component {
         <h2>{palette.name}</h2>
           <div style={{display:'flex', flexWrap:'wrap', width:'100%'}}>
             {colors.map(colorObj => {
-              return <ColorPreview color={colorObj.color}/>
+              return <ColorPreview color={colorObj.color} paletteID={colorObj.paletteID} dbKey={colorObj.dbKey}/>
             })
             }
           </div>

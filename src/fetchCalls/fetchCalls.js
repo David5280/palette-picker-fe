@@ -6,9 +6,9 @@ export const serverCall = async (path, verb, content) => {
   const url = `https://pallete-picker-de-pg.herokuapp.com/api/v1/${path}`
   // specify verb as GET, POST, PATCH or DELETE
     const options = {
-      method: `${verb || 'GET'}`,
+      method: `${verb || "GET"}`,
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       //send in the content you wish to send in the body
       //leave empty for DELETE or generic GET
@@ -19,8 +19,9 @@ export const serverCall = async (path, verb, content) => {
     if (!response.ok) {
       throw new Error('There was an error retrieving projects at this time...')
     }
-    //URL gets passed in 
+    console.log(response)
     const results = await response.json()
+    //URL gets passed in 
     return results
   } catch (error) {
     throw Error(error.message)
