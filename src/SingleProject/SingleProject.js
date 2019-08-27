@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { serverCall } from '../fetchCalls/fetchCalls';
+import { Link } from 'react-browser-router';
 
 export class SingleProject extends Component {
   constructor() {
@@ -20,24 +21,38 @@ export class SingleProject extends Component {
 
   showPalettes = () => {
     return this.state.palettes.map((color, i) => {
-      console.log(color)
       return (
-        <section>
+        <section className='palette-container'>
           <p>Color Palette: {color.name}</p>
-        <div style={{ backgroundColor:`${color.color_1}`}} >
-          some
+        <div className='single-color' style={{ 
+          backgroundColor:`${color.color_1}`,
+          height:"50px"
+          }} >
+        {color.color_1}
         </div>
-        <div style={{ backgroundColor:`${color.color_2}`}} >
-          thing
+        <div className='single-color' style={{ 
+          backgroundColor:`${color.color_2}`,
+          height:"50px"
+          }} >
+        {color.color_2}
         </div>
-        <div style={{ backgroundColor:`${color.color_3}`}} >
-          here
+        <div className='single-color' style={{ 
+          backgroundColor:`${color.color_3}`,
+          height:"50px"
+          }} >
+        {color.color_3}
         </div>
-        <div style={{ backgroundColor:`${color.color_4}`}} >
-          bitch
+        <div className='single-color' style={{ 
+          backgroundColor:`${color.color_4}`,
+          height:"50px"
+          }} >
+        {color.color_4}
         </div>
-        <div style={{ backgroundColor:`${color.color_5}`}} >
-          jev
+        <div className='single-color' style={{ 
+          backgroundColor:`${color.color_5}`,
+          height:"50px"
+          }} >
+        {color.color_5}
         </div>
         </section>
       )
@@ -46,7 +61,10 @@ export class SingleProject extends Component {
 
   render() {
     return (
-      <div>
+      <div className='palettes' style={{overflow: "auto"}}>
+        <Link to='/projects'>
+          <span role="img" aria-label="back buttton">🔙</span>
+        </Link>
         <h2>
           {this.state.project_name}
         </h2>

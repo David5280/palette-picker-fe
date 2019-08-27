@@ -5,6 +5,7 @@ import { serverCall } from '../fetchCalls/fetchCalls';
 import { connect } from 'react-redux';
 import { retrieveProjects, loadComplete, hasErrored } from '../actions';
 import { Route, Link } from 'react-router-dom';
+import menuIcon from '../images/menu.png';
 import Projects from '../Projects/Projects';
 import SingleProject from '../SingleProject/SingleProject';
 
@@ -39,7 +40,16 @@ class App extends React.Component {
     return (
       <div className="App">
             <header>
-              <h1>Palette! Picker</h1>
+              <Link to='/'>
+                <h1>Palette! Picker</h1>
+              </Link>
+              <Link to='/projects' >
+                <img 
+                  src={menuIcon} 
+                  alt='menu-icon'
+                  className='menu-icon' 
+                />
+              </Link>
             </header>
           <Route exact path='/' render={() => 
             (

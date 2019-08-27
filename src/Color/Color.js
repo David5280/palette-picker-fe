@@ -9,8 +9,10 @@ const Color = (props) => {
         {backgroundColor: `#${hexcode}`}
       }
     >
+    <div style={{borderRadius: '100px', margin:'auto', backgroundColor:'#'+hexcode, width:'100px'}}>
       <p className='color-info'>Color {index + 1}: </p>
       <p>#{hexcode.toUpperCase()}</p>
+    </div>
       <img 
         src={`${icon}`} 
         alt='locked-icon' 

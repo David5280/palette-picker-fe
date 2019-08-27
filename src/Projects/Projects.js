@@ -23,7 +23,7 @@ export class Projects extends Component {
   }
   render() {
     return (
-      <section >
+      <section>
         {this.allProjects()}
       </section>
     )
