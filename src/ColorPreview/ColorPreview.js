@@ -17,10 +17,9 @@ export class ColorPreview extends Component {
     this.setState({ edited: true, color: color })
   }
 
-  patchColor = async (paletteID, dbKey) => {
-    console.log(paletteID, dbKey)
-    const patchRes = await serverCall(`palettes/${paletteID}`, "PATCH", {[dbKey]:this.state.color})
-    // console.log(await patchRes)
+  patchColor = (paletteID, dbKey) => {
+    this.props.patchProject(`palettes/${paletteID}`, {[dbKey]:this.state.color})
+    this.setState({ edited: false })
   }
 
   render() {
@@ -28,20 +27,22 @@ export class ColorPreview extends Component {
     return (
       <div 
       className='single-color-preview' 
-      style={{ backgroundColor: `${this.state.color || color}`, width:'20%', marginBottom:'10px', height:50, verticalAlign:'center', display: 'flex', alignItems: 'center', justifyContent: 'center'}}
+      style={{ backgroundColor: `${this.state.color || color}`, width:'20%', marginBottom:'10px', height:100, verticalAlign:'center', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection:'column'}}
       >
         <button
+        style={{borderRadius:12}}
         onClick={() => this.randomColor()}
         >
           Randomize Color
         </button>
       
-        <p style={{ backgroundColor: 'rgba(255, 255, 255, 0.3)', width: '50%' }}>
+        <p 
+        style={{width: '50%', color:'white'}}>
         {this.state.color || color}
+        </p>
         {this.state.edited && <button
         onClick={() => this.patchColor(paletteID, dbKey)} 
         >Save to Palette!</button>}
-        </p>
       </div>
     )
   }

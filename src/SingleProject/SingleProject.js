@@ -13,16 +13,28 @@ export class SingleProject extends Component {
   }
 
   async componentDidMount() {
-    console.log('hit')
     const projectInfo = await serverCall(`projects/${this.props.id}`)
-    console.log(await projectInfo)
     this.setState({project_id: projectInfo.id, palettes: projectInfo.palette, project_name: projectInfo.name})
-    console.log(this.state)
   }
+
+  patchProject = async (path, value) => {
+    console.log(path)
+    await serverCall(path, "PATCH", value)
+  }
+
+  deletePalette = async (paletteID) => {
+    const deleteRes = await serverCall(`palettes/${paletteID}`, 'DELETE')
+    console.log(await deleteRes)
+    if (await deleteRes.message.includes('has been deleted')) {
+      const filteredPalettes = this.state.palettes.filter(palette => {
+        return palette.id !== paletteID
+      })
+      this.setState({ palettes: filteredPalettes })
+    }
+  } 
 
   showPalettes = () => {
     return this.state.palettes.map((palette, i) => {
-      console.log(palette)
       let colors = [
         {
           paletteID: palette.id,
@@ -57,10 +69,24 @@ export class SingleProject extends Component {
       ]
       return (
         <>
-        <h2>{palette.name}</h2>
+        <h2 
+          contentEditable={true} 
+          onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
+        >
+        {palette.name}
+        </h2>
+          <div onClick={()=> this.deletePalette(palette.id)}>
+            🗑
+          </div>
+
           <div style={{display:'flex', flexWrap:'wrap', width:'100%'}}>
             {colors.map(colorObj => {
-              return <ColorPreview color={colorObj.color} paletteID={colorObj.paletteID} dbKey={colorObj.dbKey}/>
+              return <ColorPreview 
+                color={colorObj.color} 
+                paletteID={colorObj.paletteID} 
+                dbKey={colorObj.dbKey}
+                patchProject={this.patchProject}
+              />
             })
             }
           </div>
