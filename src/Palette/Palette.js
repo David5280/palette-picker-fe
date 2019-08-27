@@ -15,7 +15,6 @@ class Palette extends Component {
     this.makeRandomColors()
   };
 
-  
   makeRandomColors = () => {
     const { scheme, variation, storePalette } = this.props;
     const randomHue = (Math.random() * (360 - 1) + 1)
@@ -120,8 +119,9 @@ export const mapDispatchToProps = dispatch => ({
   storePalette: palette => dispatch(storePalette(palette)),
   changeScheme: scheme => dispatch(changeScheme(scheme)),
   changeVariation: variation => dispatch(changeVariation(variation)),
+});
 
-})
+
 
 export default connect(
   mapStateToProps,
