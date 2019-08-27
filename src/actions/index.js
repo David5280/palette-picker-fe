@@ -27,3 +27,8 @@ export const hasErrored = error => ({
   type: 'HAS_ERRORED',
   error
 });
+
+export const loadProjectPalettes = palettes => ({
+  type: 'LOAD_PROJECT_PALETTES',
+  palettes
+});

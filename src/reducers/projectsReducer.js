@@ -6,6 +6,8 @@ export const projectsReducer = (state=[], action) => {
       return [...state, action.project]
     case 'DELETE_PROJECT':
       return state = state.filter(project => project !== action.id)
+    case 'LOAD_PROJECT_PALETTES':
+      return state.savedPalettes = action.palettes
     default:
       return state
   }
