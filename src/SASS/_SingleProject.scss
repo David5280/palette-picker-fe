@@ -36,11 +36,23 @@
   align-items: center;
   & h2 {
     margin: auto;
+    font-size: 2.2rem;
+    text-decoration: underline;
+  }
+}
+
+.palette-header {
+  width: fit-content;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  & h3 {
+    font-size: 1.6rem;
   }
 }
 
 .delete-palette-button {
-  height: 25px;
+  height: 20px;
   margin: 0px 10px;
 }
 
@@ -52,8 +64,7 @@
 }
 
 .back-icon {
-  width: 45px;
-  margin-right: 83vw;
-  margin-top: 10px;
+  width: 35px;
+  margin: 10px auto 0 5px;
   display: inline-block;
 }
