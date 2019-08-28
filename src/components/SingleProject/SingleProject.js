@@ -84,12 +84,13 @@ export class SingleProject extends Component {
             />
         </div>
           <div className='color-preview'>
-            {colors.map(colorObj => {
+            {colors.map((colorObj, i) => {
               return <ColorPreview 
                 color={colorObj.color} 
                 paletteID={colorObj.paletteID} 
                 dbKey={colorObj.dbKey}
                 patchProject={this.patchProject}
+                key={colorObj.name + i}
               />
             })
             }
@@ -104,7 +105,7 @@ export class SingleProject extends Component {
       <div className='palettes'>
         <div className='project-header'>
         <Link to='/projects' className='back-icon'>
-          <img src={backIcon} alt='back-icon' />
+          <img src={backIcon} alt='back-icon' className='back-image' />
         </Link>
         <h2>
           {this.state.project_name}

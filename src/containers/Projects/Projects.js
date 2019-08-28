@@ -24,9 +24,9 @@ export class Projects extends Component {
   }
 
   allProjects = () => {
-    return this.props.projects.map(project => {
+    return this.props.projects.map((project, i) => {
       return (
-        <article className='single-project'>
+        <article className='single-project' key={i}>
           <Link 
             to={`/projects/${project.name.split(' ').join('')+'_'+project.id}`}
           >
@@ -52,6 +52,7 @@ export class Projects extends Component {
             <img 
               src={backIcon}
               alt='back-icon'
+              className='back-image'
             />
           </Link>
           <h2 className='saved-projects-title'>Saved Projects</h2>

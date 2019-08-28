@@ -65,7 +65,7 @@ class Palette extends Component {
       return <Color 
         hexcode={color} 
         index={i}
-        key={i} 
+        key={color + i} 
         icon={icon}
         handleLock={this.handleLock} 
         />
