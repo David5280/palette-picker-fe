@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-browser-router';
-import { deleteProject } from '../actions';
-import { serverCall } from '../fetchCalls/fetchCalls';
-import deleteIcon from '../images/delete.png';
-import backIcon from '../images/back.png';
+import { deleteProject } from '../../actions';
+import { serverCall } from '../../fetchCalls/fetchCalls';
+import deleteIcon from '../../images/delete.png';
+import backIcon from '../../images/back.png';
 
 
 export class Projects extends Component {

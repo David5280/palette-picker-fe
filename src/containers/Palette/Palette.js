@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import ColorScheme from 'color-scheme';
-import Color from '../Color/Color';
+import Color from '../../components/Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
 import NewProjectForm from '../NewProjectForm/NewProjectForm';
-import { storePalette, changeScheme, changeVariation } from '../actions'
+import { storePalette, changeScheme, changeVariation } from '../../actions'
 import { connect } from 'react-redux';
-import lockedIcon from '../images/locked.svg';
-import unlockedIcon from '../images/unlocked.svg';
+import lockedIcon from '../../images/locked.svg';
+import unlockedIcon from '../../images/unlocked.svg';
 
 class Palette extends Component {
   state = {
