@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-browser-router';
 import { deleteProject } from '../actions';
 import { serverCall } from '../fetchCalls/fetchCalls';
-import deleteIcon from '../images/stop.png';
+import deleteIcon from '../images/delete.png';
 
 export class Projects extends Component {
   constructor(){

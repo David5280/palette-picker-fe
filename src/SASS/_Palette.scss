@@ -12,6 +12,7 @@
   max-width: 1500px;
   min-width: 700px;
   width: 90%;
+  overflow: auto;
   & .single-color {
     animation-duration: 1s;
     animation-name: bounceIn;

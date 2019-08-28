@@ -12,8 +12,33 @@
     width: 100%;
   }
   & h2 {
-    width: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:hover {
+      cursor: pointer;
+    }
   }
+}
+
+.color-preview {
+  display: flex;
+  width: 100%;
+  flex-wrap:wrap;
+}
+
+.project-header {
+  display: flex;
+  margin-top: 10px;
+  width: fit-content;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-palette-button {
+  height: 25px;
+  margin: 0px 10px;
 }
 
 .delete-project-btn {
