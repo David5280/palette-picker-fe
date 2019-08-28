@@ -112,4 +112,32 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+  it('should have a type of ADD_PROJECT', () => {
+    const project = {
+      name: 'new one for the fans'
+    };
+
+    const expectedAction = {
+      type: 'ADD_PROJECT',
+      project
+    };
+
+    const result = actions.addProject(project);
+
+    expect(result).toEqual(expectedAction);
+  });
+  it('should have a type of DELETE_PROJECT', () => {
+    const projectID = {
+      id: 4
+    };
+
+    const expectedAction = {
+      type: 'DELETE_PROJECT',
+      projectID
+    };
+
+    const result = actions.deleteProject(projectID);
+
+    expect(result).toEqual(expectedAction);
+  });
 });
