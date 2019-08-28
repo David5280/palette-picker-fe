@@ -4,6 +4,8 @@ import { Link } from 'react-browser-router';
 import { deleteProject } from '../actions';
 import { serverCall } from '../fetchCalls/fetchCalls';
 import deleteIcon from '../images/delete.png';
+import backIcon from '../images/back.png';
+
 
 export class Projects extends Component {
   constructor(){
@@ -42,6 +44,18 @@ export class Projects extends Component {
   render() {
     return (
       <section className='palettes'>
+        <div className='project-header'>
+          <Link 
+            to='/'
+            className='back-home-icon'
+          >
+            <img 
+              src={backIcon}
+              alt='back-icon'
+            />
+          </Link>
+          <h2 className='saved-projects-title'>Saved Projects</h2>
+        </div>
         {this.allProjects()}
       </section>
     )

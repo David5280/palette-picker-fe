@@ -30,6 +30,9 @@
       transform: scale(1.05);
       transition: all .1s ease-in-out;
     }
+    & h2 {
+      margin-top: 5px;
+    }
   }
   & .buttons-left {
     border-radius: 5px;
@@ -39,6 +42,11 @@
     margin: auto;
     width: 140px;
   } 
+}
+
+.saved-projects-title {
+  text-decoration: underline;
+  display: inline-block;
 }
 
 .project-name-input {
@@ -96,4 +104,13 @@
   width: 80%;
   animation-name: bounceIn;
   animation-duration: 1s;
+}
+
+a {
+  &.back-home-icon {
+    // width: fit-content;
+    // margin: 10px auto 0 5px;
+    float: left;
+    // display: inline-block;
+  }
 }
