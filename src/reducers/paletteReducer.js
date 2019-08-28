@@ -1,4 +1,4 @@
-export const paletteReducer = (state={
+export const paletteReducer = ( state={
   colorScheme:'triade',
   colorVariation:'default'
 }, action) => {
