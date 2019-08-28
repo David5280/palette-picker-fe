@@ -1,7 +1,7 @@
 import React from 'react';
 import {App, mapDispatchToProps, mapStateToProps} from './App.js';
 import { shallow } from 'enzyme'
-import { mockProjects } from '../mockData.js';
+import { mockProjects } from '../../mockData.js';
 
 describe('App Container', () => {
   let wrapper;
