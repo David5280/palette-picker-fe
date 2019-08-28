@@ -8,10 +8,10 @@ describe('App Container', () => {
   beforeEach(() => {
     wrapper = shallow(
       <App 
-      projects={mockProjects} 
-      retrieveProjects={jest.fn()}
-      loadComplete={jest.fn()}
-      hasErrored={jest.fn()}
+        projects={mockProjects} 
+        retrieveProjects={jest.fn()}
+        loadComplete={jest.fn()}
+        hasErrored={jest.fn()}
       />
     )
 

@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './App';
+import {NewPaletteForm} from './NewPaletteForm' 
 import { shallow } from 'enzyme'
+import { mockColors, mockProjects } from '../../mockData';
 
-describe('Project Container', () => {
-  it('should do something', () => {
-
+describe('NewPaletteForm Container', () => {
+let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(
+      <NewPaletteForm 
+        colors={mockColors} 
+        projects={mockProjects}
+      />
+    )
   })
+
+  it('should match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
 })
