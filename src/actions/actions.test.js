@@ -100,7 +100,7 @@ describe('actions', () => {
         color_3: '#CCCCCC', 
         color_4: '#DDDDDD', 
         color_5: '#EEEEEE'
-      },
+      }
     ];
 
     const expectedAction = {
