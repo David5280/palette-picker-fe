@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ColorScheme from 'color-scheme'
-import Palette from '../Palette/Palette';
-import { serverCall } from '../fetchCalls/fetchCalls';
-import randomizeIcon from '../images/randomize.png';
-import saveIcon from '../images/save.png';
+// import Palette from '../containers/Palette/Palette';
+// import { serverCall } from '../fetchCalls/fetchCalls';
+import randomizeIcon from '../../images/randomize.png';
+import saveIcon from '../../images/save.png';
 
 
 export class ColorPreview extends Component {

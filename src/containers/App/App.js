@@ -1,13 +1,12 @@
 import React from 'react';
 import Palette from '../Palette/Palette';
-import ProjectContainer from '../ProjectContainer/ProjectContainer';
-import { serverCall } from '../fetchCalls/fetchCalls';
+import { serverCall } from '../../fetchCalls/fetchCalls';
 import { connect } from 'react-redux';
-import { retrieveProjects, loadComplete, hasErrored } from '../actions';
+import { retrieveProjects, loadComplete, hasErrored } from '../../actions';
 import { Route, Link } from 'react-router-dom';
-import menuIcon from '../images/menu.png';
+import menuIcon from '../../images/menu.png';
 import Projects from '../Projects/Projects';
-import SingleProject from '../SingleProject/SingleProject';
+import SingleProject from '../../components/SingleProject/SingleProject';
 
 export class App extends React.Component {
   constructor() {
@@ -39,31 +38,30 @@ export class App extends React.Component {
   render() {
     return (
       <div className="App">
-            <header>
-              <Link to='/'>
-                <h1>Palette! Picker</h1>
-              </Link>
-              <Link to='/projects' >
-                <img 
-                  src={menuIcon} 
-                  alt='menu-icon'
-                  className='menu-icon' 
-                />
-              </Link>
-            </header>
-          <Route exact path='/' render={() => 
-            (
-            <main>
-              <Palette />
-              <ProjectContainer />
-            </main>
-            )
-        } />
-          <Route exact path='/projects' component={Projects} />
+        <header>
+          <Link to='/'>
+            <h1>Palette! Picker</h1>
+          </Link>
+          <Link to='/projects' >
+            <img 
+              src={menuIcon} 
+              alt='menu-icon'
+              className='menu-icon' 
+            />
+          </Link>
+        </header>
+        <Route exact path='/' render={() => 
+          (
+          <main>
+            <Palette />
+          </main>
+          )
+        }/>
+        <Route exact path='/projects' component={Projects} />
         {this.makeRoutes()}
-          <footer>
-            <p>Follow us on the interwebs, nerd.</p>
-          </footer>  
+        <footer>
+          <p>Follow us on the interwebs, nerd.</p>
+        </footer>  
       </div>
     );
   }

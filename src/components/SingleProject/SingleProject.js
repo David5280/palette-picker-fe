@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ColorPreview from '../ColorPreview/ColorPreview';
-import { serverCall } from '../fetchCalls/fetchCalls';
+import { serverCall } from '../../fetchCalls/fetchCalls';
 import { Link } from 'react-browser-router';
-import deleteIcon from '../images/delete.png';
-import backIcon from '../images/back.png';
+import deleteIcon from '../../images/delete.png';
+import backIcon from '../../images/back.png';
 
 export class SingleProject extends Component {
   constructor() {

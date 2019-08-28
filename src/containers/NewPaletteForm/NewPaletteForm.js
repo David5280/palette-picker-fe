@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { serverCall } from '../fetchCalls/fetchCalls';
+import { serverCall } from '../../fetchCalls/fetchCalls';
 
 export class NewPaletteForm extends Component {
   constructor() {

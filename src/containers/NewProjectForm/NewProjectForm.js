@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { serverCall } from '../fetchCalls/fetchCalls';
-import { addProject } from '../actions';
+import { serverCall } from '../../fetchCalls/fetchCalls';
+import { addProject } from '../../actions';
 import { connect } from 'react-redux';
 
 export class NewProjectForm extends Component {
