@@ -31,7 +31,13 @@ export class App extends React.Component {
 
   makeRoutes = () => {
     return this.props.projects.map(project => {
-      return <Route exact path={`/projects/${project.name.split(' ').join('')}_${project.id}`} render={()=> <SingleProject id={project.id}/>} />
+      return <Route 
+        exact path={`/projects/${project.name
+          .split(' ')
+          .join('')}_${project.id}`} 
+          key={project.id}
+          render={()=> <SingleProject id={project.id}
+        />} />
     })
   }
 

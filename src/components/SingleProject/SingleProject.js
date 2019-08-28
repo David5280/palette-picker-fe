@@ -84,12 +84,13 @@ export class SingleProject extends Component {
             />
         </div>
           <div className='color-preview'>
-            {colors.map(colorObj => {
+            {colors.map((colorObj, i) => {
               return <ColorPreview 
                 color={colorObj.color} 
                 paletteID={colorObj.paletteID} 
                 dbKey={colorObj.dbKey}
                 patchProject={this.patchProject}
+                key={colorObj.name + i}
               />
             })
             }

@@ -24,9 +24,9 @@ export class Projects extends Component {
   }
 
   allProjects = () => {
-    return this.props.projects.map(project => {
+    return this.props.projects.map((project, i) => {
       return (
-        <article className='single-project'>
+        <article className='single-project' key={i}>
           <Link 
             to={`/projects/${project.name.split(' ').join('')+'_'+project.id}`}
           >
