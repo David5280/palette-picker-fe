@@ -104,7 +104,7 @@ export class SingleProject extends Component {
       <div className='palettes'>
         <div className='project-header'>
         <Link to='/projects' className='back-icon'>
-          <img src={backIcon} alt='back-icon' />
+          <img src={backIcon} alt='back-icon' className='back-image' />
         </Link>
         <h2>
           {this.state.project_name}

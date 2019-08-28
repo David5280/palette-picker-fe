@@ -52,6 +52,7 @@ export class Projects extends Component {
             <img 
               src={backIcon}
               alt='back-icon'
+              className='back-image'
             />
           </Link>
           <h2 className='saved-projects-title'>Saved Projects</h2>
