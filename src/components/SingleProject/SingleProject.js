@@ -102,10 +102,10 @@ export class SingleProject extends Component {
   render() {
     return (
       <div className='palettes'>
+        <div className='project-header'>
         <Link to='/projects' className='back-icon'>
           <img src={backIcon} alt='back-icon' />
         </Link>
-        <div className='project-header'>
         <h2>
           {this.state.project_name}
         </h2>
