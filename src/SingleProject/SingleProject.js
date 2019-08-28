@@ -18,13 +18,11 @@ export class SingleProject extends Component {
   }
 
   patchProject = async (path, value) => {
-    console.log(path)
     await serverCall(path, "PATCH", value)
   }
 
   deletePalette = async (paletteID) => {
     const deleteRes = await serverCall(`palettes/${paletteID}`, 'DELETE')
-    console.log(await deleteRes)
     if (await deleteRes.deleted) {
       const filteredPalettes = this.state.palettes.filter(palette => {
         return palette.id !== paletteID

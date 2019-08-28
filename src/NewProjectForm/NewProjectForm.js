@@ -22,7 +22,7 @@ export class NewProjectForm extends Component {
 
   render() {
     return (
-      <form>
+      <form className='project-name-input'>
         <div>
           <input 
             type='text' 
@@ -30,8 +30,9 @@ export class NewProjectForm extends Component {
             value={this.state.projectName}
             onChange={this.handleChange}
             name='projectName'
+            className='buttons-left project-name-input'
           />
-          <button onClick={(e) => this.createProject(e)}>Save Project</button>
+          <button onClick={(e) => this.createProject(e)} className='buttons-left project-name-input'>Save Project</button>
         </div>
       </form>
     )

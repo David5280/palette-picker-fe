@@ -37,3 +37,8 @@ export const addProject = project => ({
   type: 'ADD_PROJECT',
   project
 });
+
+export const deleteProject = projectID => ({
+  type: 'DELETE_PROJECT',
+  projectID
+});

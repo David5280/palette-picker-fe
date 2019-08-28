@@ -34,10 +34,23 @@
     border-radius: 5px;
     border: 1px solid black;
     display: block;
-    height: 40px;
+    height: 30px;
     margin: auto;
     width: 140px;
   } 
+}
+
+.project-name-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 30px;
+  margin: 4px auto;
+  &.buttons-left {
+    height: 16px;
+    margin: 4px;
+    padding: 0 4px;
+  }
 }
 
 .color-info {

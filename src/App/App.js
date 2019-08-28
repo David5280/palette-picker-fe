@@ -59,7 +59,7 @@ class App extends React.Component {
             </main>
             )
         } />
-          <Route exact path='/projects' render={ () => <Projects /> } />
+          <Route exact path='/projects' component={Projects} />
         {this.makeRoutes()}
           <footer>
             <p>Follow us on the interwebs, nerd.</p>
