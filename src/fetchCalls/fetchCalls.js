@@ -15,12 +15,14 @@ export const serverCall = async (path, verb, content) => {
         body: JSON.stringify(content || undefined)
     };
   try {
+    //URL gets passed in 
     const response = await fetch(url, options)
     if (!response.ok) {
-      throw new Error('There was an error retrieving projects at this time...')
+      // Sever Error
+      throw new Error(`There was an error retrieving projects at this time... ${response}`)
     }
+    // 
     const results = await response.json()
-    //URL gets passed in 
     return results
   } catch (error) {
     throw Error(error.message)
