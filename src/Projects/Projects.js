@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-browser-router';
 import { deleteProject } from '../actions';
 import { serverCall } from '../fetchCalls/fetchCalls';
+import deleteIcon from '../images/delete.png';
+import backIcon from '../images/back.png';
+
 
 export class Projects extends Component {
   constructor(){
@@ -29,7 +32,11 @@ export class Projects extends Component {
           >
             <h2>{project.name}</h2>
           </Link>
-            <div onClick={() => this.handleDelete(project.id)}>🗑</div>
+            <img 
+            src={deleteIcon}
+            alt='delete-icon'
+            className='delete-project-btn'
+            onClick={() => this.handleDelete(project.id)} />
         </article>
       )
     })
@@ -37,6 +44,18 @@ export class Projects extends Component {
   render() {
     return (
       <section className='palettes'>
+        <div className='project-header'>
+          <Link 
+            to='/'
+            className='back-home-icon'
+          >
+            <img 
+              src={backIcon}
+              alt='back-icon'
+            />
+          </Link>
+          <h2 className='saved-projects-title'>Saved Projects</h2>
+        </div>
         {this.allProjects()}
       </section>
     )

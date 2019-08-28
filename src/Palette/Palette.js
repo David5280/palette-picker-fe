@@ -62,7 +62,13 @@ class Palette extends Component {
       const icon = this.state.lockedColors.includes(color) ?
       lockedIcon :
       unlockedIcon
-      return <Color hexcode={color} index={i} handleLock={this.handleLock} icon={icon}/>
+      return <Color 
+        hexcode={color} 
+        index={i}
+        key={i} 
+        icon={icon}
+        handleLock={this.handleLock} 
+        />
     });
   };
 

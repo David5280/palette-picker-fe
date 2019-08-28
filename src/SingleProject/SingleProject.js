@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ColorPreview from '../ColorPreview/ColorPreview';
 import { serverCall } from '../fetchCalls/fetchCalls';
 import { Link } from 'react-browser-router';
+import deleteIcon from '../images/delete.png';
+import backIcon from '../images/back.png';
 
 export class SingleProject extends Component {
   constructor() {
@@ -67,17 +69,21 @@ export class SingleProject extends Component {
       ]
       return (
         <>
-        <h2 
-          contentEditable={true} 
-          onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
-        >
-        {palette.name}
-        </h2>
-          <div onClick={()=> this.deletePalette(palette.id)}>
-            🗑
-          </div>
-
-          <div style={{display:'flex', flexWrap:'wrap', width:'100%'}}>
+        <div className='palette-header'>
+          <h3 
+            contentEditable={true} 
+            onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
+          >
+          {palette.name}
+          </h3>
+            <img 
+              src={deleteIcon} 
+              alt='delete-icon'
+              className='delete-palette-button'
+              onClick={()=> this.deletePalette(palette.id)} 
+            />
+        </div>
+          <div className='color-preview'>
             {colors.map(colorObj => {
               return <ColorPreview 
                 color={colorObj.color} 
@@ -95,13 +101,15 @@ export class SingleProject extends Component {
 
   render() {
     return (
-      <div className='palettes' style={{overflow: "auto"}}>
-        <Link to='/projects'>
-          <span role="img" aria-label="back buttton">🔙</span>
+      <div className='palettes'>
+        <Link to='/projects' className='back-icon'>
+          <img src={backIcon} alt='back-icon' />
         </Link>
+        <div className='project-header'>
         <h2>
           {this.state.project_name}
         </h2>
+        </div>
         {this.showPalettes()}
       </div>
     )

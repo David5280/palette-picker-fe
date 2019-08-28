@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import ColorScheme from 'color-scheme'
 import Palette from '../Palette/Palette';
 import { serverCall } from '../fetchCalls/fetchCalls';
+import randomizeIcon from '../images/randomize.png';
+import saveIcon from '../images/save.png';
+
 
 export class ColorPreview extends Component {
   state ={
@@ -25,25 +28,28 @@ export class ColorPreview extends Component {
   render() {
     const { color, paletteID, dbKey } = this.props;
     return (
-      <div 
+      <section 
       className='single-color-preview' 
-      style={{ backgroundColor: `${this.state.color || color}`, width:'20%', marginBottom:'10px', height:100, verticalAlign:'center', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection:'column'}}
+      style={{ backgroundColor: `${this.state.color || color}`}}
       >
-        <button
-        style={{borderRadius:12}}
-        onClick={() => this.randomColor()}
-        >
-          Randomize Color
-        </button>
-      
-        <p 
-        style={{width: '50%', color:'white'}}>
-        {this.state.color || color}
-        </p>
-        {this.state.edited && <button
-        onClick={() => this.patchColor(paletteID, dbKey)} 
-        >Save to Palette!</button>}
-      </div>
+        <div className='color-controls'>
+          <img
+          src={randomizeIcon}
+          alt='randomize-icon'
+          className='randomize-icon'
+          onClick={() => this.randomColor()}
+          />
+          <p>
+          {this.state.color.toUpperCase() || color.toUpperCase()}
+          </p>
+          {this.state.edited && <img
+          src={saveIcon}
+          alt='save-icon'
+          className='save-icon'
+          onClick={() => this.patchColor(paletteID, dbKey)} 
+          />}
+        </div>
+      </section>
     )
   }
 }
