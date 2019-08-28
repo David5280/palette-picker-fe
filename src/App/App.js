@@ -9,7 +9,7 @@ import menuIcon from '../images/menu.png';
 import Projects from '../Projects/Projects';
 import SingleProject from '../SingleProject/SingleProject';
 
-class App extends React.Component {
+export class App extends React.Component {
   constructor() {
     super()
     this.state = {}
