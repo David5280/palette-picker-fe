@@ -19,4 +19,13 @@ describe('errorReducer', () => {
     const result = errorReducer(state, action);
     expect(result).toEqual('Error doing things')
   });
+  it('should clear the error when CLEAR_ERROR fires', () => {
+    const state = 'ERRORRR';
+    const action = {
+      type: 'CLEAR_ERROR',
+    };
+    const expected = '';
+    const result = errorReducer(state, action);
+    expect(result).toEqual(expected);
+  });
 });
