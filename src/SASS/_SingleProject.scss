@@ -1,5 +1,24 @@
 .single-project {
-  background-color: rgba(122, 121, 121, .4);
-  margin: 15px;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  align-items: center;
+  width: 90%;
+  height: 80px;
+  & a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+  }
+  & h2 {
+    width: 100%;
+  }
+}
+
+.delete-project-btn {
+  height: 35px;
+  &:hover {
+    cursor: pointer;
+  }
 }
