@@ -3,6 +3,7 @@ import ColorPreview from '../ColorPreview/ColorPreview';
 import { serverCall } from '../fetchCalls/fetchCalls';
 import { Link } from 'react-browser-router';
 import deleteIcon from '../images/delete.png';
+import backIcon from '../images/back.png';
 
 export class SingleProject extends Component {
   constructor() {
@@ -68,13 +69,13 @@ export class SingleProject extends Component {
       ]
       return (
         <>
-        <div className='project-header'>
-          <h2 
+        <div className='palette-header'>
+          <h3 
             contentEditable={true} 
             onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
           >
           {palette.name}
-          </h2>
+          </h3>
             <img 
               src={deleteIcon} 
               alt='delete-icon'
@@ -102,11 +103,13 @@ export class SingleProject extends Component {
     return (
       <div className='palettes'>
         <Link to='/projects'>
-          <span role="img" aria-label="back buttton">🔙</span>
+          <img src={backIcon} alt='back-icon' className='back-icon' />
         </Link>
+        <div className='project-header'>
         <h2>
           {this.state.project_name}
         </h2>
+        </div>
         {this.showPalettes()}
       </div>
     )

@@ -11,8 +11,8 @@
   margin: 20px auto;
   max-width: 1500px;
   min-width: 700px;
+  overflow: scroll;
   width: 90%;
-  overflow: auto;
   & .single-color {
     animation-duration: 1s;
     animation-name: bounceIn;
@@ -64,6 +64,7 @@
     cursor: pointer;
   }
 }
+
 .customize-palette-input {
   border-radius: 5px;
   border: 1px solid black;

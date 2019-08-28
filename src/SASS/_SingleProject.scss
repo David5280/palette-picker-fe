@@ -34,6 +34,9 @@
   width: fit-content;
   justify-content: space-between;
   align-items: center;
+  & h2 {
+    margin: auto;
+  }
 }
 
 .delete-palette-button {
@@ -46,4 +49,11 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.back-icon {
+  width: 45px;
+  margin-right: 83vw;
+  margin-top: 10px;
+  display: inline-block;
 }
