@@ -25,7 +25,7 @@ export class Projects extends Component {
   }
   render() {
     return (
-      <section>
+      <section className='palettes'>
         {this.allProjects()}
       </section>
     )

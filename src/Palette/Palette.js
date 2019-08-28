@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ColorScheme from 'color-scheme';
 import Color from '../Color/Color';
 import NewPaletteForm from '../NewPaletteForm/NewPaletteForm';
+import NewProjectForm from '../NewProjectForm/NewProjectForm';
 import { storePalette, changeScheme, changeVariation } from '../actions'
 import { connect } from 'react-redux';
 import lockedIcon from '../images/locked.svg';
@@ -9,7 +10,8 @@ import unlockedIcon from '../images/unlocked.svg';
 
 class Palette extends Component {
   state = {
-    lockedColors: []
+    lockedColors: [],
+    showNewProjectForm: false
   };
   componentDidMount() {
     this.makeRandomColors()
@@ -40,6 +42,9 @@ class Palette extends Component {
     });
   };
 
+  handleChange = () => {
+    this.setState({ showNewProjectForm: !this.state.showNewProjectForm })
+  };
   
   handleLock = hexcode => {
     const currentLocked = this.state.lockedColors
@@ -99,7 +104,19 @@ class Palette extends Component {
           </article>
         </section>
         <section className='palette-container-controls'>
-          <button className='generate-btn' onClick={() => this.makeRandomColors()}>Generate new Palette!</button>
+          <button 
+            className='buttons-left' 
+            onClick={() => this.makeRandomColors()}
+          >
+            Generate new Palette!
+          </button>
+          {!this.state.showNewProjectForm && <button 
+            className='buttons-left'
+            onClick={() => this.handleChange()}
+          >
+            Create New Project!
+          </button>}
+          {this.state.showNewProjectForm && <NewProjectForm submit={this.handleChange}/>}
           <NewPaletteForm />
         </section>
       </section>

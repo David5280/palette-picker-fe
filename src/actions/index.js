@@ -32,3 +32,8 @@ export const loadProjectPalettes = palettes => ({
   type: 'LOAD_PROJECT_PALETTES',
   palettes
 });
+
+export const addProject = project => ({
+  type: 'ADD_PROJECT',
+  project
+});

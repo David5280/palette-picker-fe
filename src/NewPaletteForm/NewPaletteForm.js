@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { serverCall } from '../fetchCalls/fetchCalls';
 
 export class NewPaletteForm extends Component {
   constructor() {
@@ -18,6 +19,20 @@ export class NewPaletteForm extends Component {
     return <option value={project.id}>{project.name}</option>
   })
 
+  savePalette = (e) => {
+    e.preventDefault()
+    serverCall('palettes', 'POST', {
+      name: this.state.paletteName,
+      project_id: this.state.currentProjectId,
+      color_1: `#${this.props.colors[0]}`,
+      color_2: `#${this.props.colors[1]}`,
+      color_3: `#${this.props.colors[2]}`,
+      color_4: `#${this.props.colors[3]}`,
+      color_5: `#${this.props.colors[4]}`
+    })
+    this.setState({ paletteName: ''})
+  }
+
   render() {
     return (
       <form className='new-palette-form'>
@@ -33,9 +48,15 @@ export class NewPaletteForm extends Component {
           placeholder='Palette Name...'
           className='new-palette-input palette-name-input'
           name='paletteName' 
+          value={this.state.paletteName}
           onChange={(e) => this.handleChange(e)}
         />
-        <button className='new-palette-input'>Save Palette</button>
+        <button 
+        className='new-palette-input'
+        onClick={(e)=> this.savePalette(e)}
+        >
+          Save Palette
+        </button>
       </form>
     )
   }
