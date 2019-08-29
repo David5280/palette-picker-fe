@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { NewProjectForm, mapDispatchToProps } from './NewProjectForm';
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { singleMockProject } from '../../mockData';
 import { addProject } from '../../actions';
 
@@ -28,6 +28,15 @@ describe('NewProjectForm Container', () => {
     const mappedProps = mapDispatchToProps(mockDispatch);
     mappedProps.addProject(mockResults);
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  })
+
+  it('should create a project', async () => {
+    const e = {
+      preventDefault: jest.fn()
+    }
+    jest.spyOn(instance, 'createProject')
+    wrapper.find("[data-test='create-project-btn-test']").simulate('click', e)
+    expect(instance.createProject).toHaveBeenCalled()
   })
 
 

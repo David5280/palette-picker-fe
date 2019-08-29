@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { NewPaletteForm, savePalette } from './NewPaletteForm' 
 import { shallow } from 'enzyme'
-import { mockColors, mockProjects, mockPalletesStore } from '../../mockData';
+import { mockColors, mockProjects, mockPalletesStore, mockPalettes } from '../../mockData';
 
 jest.mock('../../fetchCalls/fetchCalls', () => ({
   serverCall: jest.fn().mockImplementation(() => {
@@ -12,14 +12,16 @@ jest.mock('../../fetchCalls/fetchCalls', () => ({
 
 describe('NewPaletteForm Container', () => {
 let wrapper;
+let instance;
   beforeEach(() => {
     wrapper = shallow(
       <NewPaletteForm 
         colors={mockColors} 
         projects={mockProjects}
-        palettes={mockPalletesStore}
+        palettes={mockPalettes}
       />
     )
+    instance = wrapper.instance()
   })
 
   it('should match the snapshot', () => {
@@ -37,6 +39,7 @@ let wrapper;
     expect(wrapper.state('paletteName')).toEqual('NEW PALETTE')
 
   });
+  
   it('should call serverCall when savePalette fires', () => {
     const e = { 
       preventDefault: jest.fn(),
@@ -45,11 +48,12 @@ let wrapper;
         value: 'NEW PALETTE'
       }
     };
-    jest.spyOn(savePalette, 'ServerCall')
+    jest.spyOn(instance, 'savePalette')
     wrapper.find('.palette-name-input').simulate('change', e)
     wrapper.instance().savePalette(e);
-    expect(wrapper.instance().savePalette).toHaveBeenCalled();
+    expect(instance.savePalette).toHaveBeenCalled();
   });
+
   // it('should map state to props', () => {
   //   const state = {
   //     colors: mockColors,

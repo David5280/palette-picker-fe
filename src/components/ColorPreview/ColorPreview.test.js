@@ -11,15 +11,18 @@ describe('ColorPreview', () => {
       paletteID: 4,
       dbKey: 'AYEE',
       }
-    wrapper = shallow(<ColorPreview 
-      color={mockColorObj.color}
-      paletteID={mockColorObj.paletteID}
-      dbKey={mockColorObj.dbKey}
-      hexcode={'#ddbbcc'}
-      index={1}
-      handleLock={jest.fn()}
-      patchProject={jest.fn()}
-      icon={'/newIcon.png'}/>)
+    wrapper = shallow(
+      <ColorPreview 
+        color={mockColorObj.color}
+        paletteID={mockColorObj.paletteID}
+        dbKey={mockColorObj.dbKey}
+        hexcode={'#ddbbcc'}
+        index={1}
+        handleLock={jest.fn()}
+        patchProject={jest.fn()}
+        icon={'/newIcon.png'}
+      />
+    )
   });
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();

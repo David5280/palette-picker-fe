@@ -173,3 +173,23 @@ export const mockPalletesStore = {
 
 
 }
+
+export const mockProjectPalette = {
+  "project_name": "New One",
+    "palettes": [
+      {
+        "id": 51,
+        "name": "adsad",
+        "created_at": "2019-08-29T05:38:30.887Z",
+        "updated_at": "2019-08-29T05:38:30.887Z",
+        "color_1": "#0a29c2",
+        "color_2": "#e8005f",
+        "color_3": "#fffd00",
+        "color_4": "#869aff",
+        "color_5": "#ff7000",
+        "project_id": 31
+      },
+      "Object"
+    ],
+      "project_id": 31
+}

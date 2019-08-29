@@ -80,6 +80,7 @@ export class SingleProject extends Component {
             <img 
               src={deleteIcon} 
               alt='delete-icon'
+              data-test={`delete-btn-${i}`}
               className='delete-palette-button'
               onClick={()=> this.deletePalette(palette.id)} 
             />
