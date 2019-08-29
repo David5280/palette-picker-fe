@@ -7,24 +7,18 @@ import deleteIcon from '../../images/delete.png';
 import backIcon from '../../images/back.png';
 
 
-export class Projects extends Component {
-  constructor(){
-    super()
-    this.state ={
+export const Projects = (props) => {
 
-    }
-  }
-
-  handleDelete = async (id) => {
+  const handleDelete = async (id) => {
     const deleteRes = await serverCall(`projects/${id}`, 'DELETE')
     if (!await deleteRes.deleted) {
       throw new Error('Unable to delete at this time.')
     }
-    this.props.deleteProject(parseInt(deleteRes.id))
+    props.deleteProject(parseInt(deleteRes.id))
   }
 
-  allProjects = () => {
-    return this.props.projects.map((project, i) => {
+  const allProjects = () => {
+    return props.projects.map((project, i) => {
       return (
         <article className='single-project' key={i}>
           <Link 
@@ -33,15 +27,15 @@ export class Projects extends Component {
             <h2>{project.name}</h2>
           </Link>
             <img 
+            data-test={`delete-project-${i}`}
             src={deleteIcon}
             alt='delete-icon'
             className='delete-project-btn'
-            onClick={() => this.handleDelete(project.id)} />
+            onClick={() => handleDelete(project.id)} />
         </article>
       )
     })
   }
-  render() {
     return (
       <section className='palettes'>
         <div className='project-header'>
@@ -57,10 +51,9 @@ export class Projects extends Component {
           </Link>
           <h2 className='saved-projects-title'>Saved Projects</h2>
         </div>
-        {this.allProjects()}
+        {allProjects()}
       </section>
     )
-  }
 }
 
 export const mapStateToProps = ({ projects }) => ({
