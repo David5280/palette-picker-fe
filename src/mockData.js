@@ -159,3 +159,17 @@ export const mockColors = [
   '#gsgf90',
   '#fhhggg',
 ]
+
+export const mockPalletesStore = {
+  colors:[
+    'fffg11',
+    'faf00g',
+    'fffg33',
+    'gsgf90',
+    'fhhggg',
+  ],
+  colorScheme:"triade",
+  colorVariation:"default",
+
+
+}
