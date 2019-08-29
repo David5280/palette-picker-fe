@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { serverCall } from '../../fetchCalls/fetchCalls';
-
 export class NewPaletteForm extends Component {
   constructor() {
     super()
@@ -16,7 +15,7 @@ export class NewPaletteForm extends Component {
   }
 
   allProjects = () => this.props.projects.map(project => {
-    return <option value={project.id}>{project.name}</option>
+    return <option key={project.id} value={project.id}>{project.name}</option>
   })
 
   savePalette = (e) => {
@@ -62,9 +61,9 @@ export class NewPaletteForm extends Component {
   }
 }
 
-export const mapStateToProps = ({colors, projects}) => ({
-  colors,
-  projects
+export const mapStateToProps = state => ({
+  colors: state.palettes.colors,
+  projects: state.projects
 });
 
 export default connect(mapStateToProps)(NewPaletteForm);
