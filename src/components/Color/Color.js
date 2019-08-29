@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Color = (props) => {
+export const Color = (props) => {
   const { hexcode, index, handleLock, icon } = props;
   return (
     <div 

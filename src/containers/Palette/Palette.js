@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import lockedIcon from '../../images/locked.svg';
 import unlockedIcon from '../../images/unlocked.svg';
 
-class Palette extends Component {
+export class Palette extends Component {
   state = {
     lockedColors: [],
     showNewProjectForm: false
@@ -65,7 +65,6 @@ class Palette extends Component {
       return <Color 
         hexcode={color} 
         index={i}
-        // key={color + i} 
         icon={icon}
         handleLock={this.handleLock} 
         />
