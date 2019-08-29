@@ -63,8 +63,8 @@ export class Projects extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  projects: state.projects
+export const mapStateToProps = ({ projects }) => ({
+  projects
 });
 
 export const mapDispatchToProps = dispatch => ({
