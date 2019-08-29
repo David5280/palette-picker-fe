@@ -21,8 +21,13 @@ describe('App Container', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should do something', () => {
-
+  it('should mapStateToProps', () => {
+    const mockState = {
+      projects: mockProjects,
+    }
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(mockState);
   })
+
 })
 
