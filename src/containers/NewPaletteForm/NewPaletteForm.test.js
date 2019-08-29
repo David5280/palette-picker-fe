@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { NewPaletteForm, savePalette } from './NewPaletteForm' 
 import { shallow } from 'enzyme'
-import { mockColors, mockProjects } from '../../mockData';
+import { mockColors, mockProjects, mockPalletesStore } from '../../mockData';
 
 jest.mock('../../fetchCalls/fetchCalls', () => ({
   serverCall: jest.fn().mockImplementation(() => {
@@ -17,6 +17,7 @@ let wrapper;
       <NewPaletteForm 
         colors={mockColors} 
         projects={mockProjects}
+        palettes={mockPalletesStore}
       />
     )
   })
