@@ -1,18 +1,22 @@
 .single-color-preview {
-  width:20%; 
-  margin-bottom:10px; 
-  height:150px; 
-  vertical-align:center; 
-  display: flex; 
   align-items: center; 
-  justify-content: center; 
+  display: flex; 
   flex-direction:column;
+  height:150px; 
+  justify-content: center; 
+  margin-bottom:10px; 
+  vertical-align:center; 
+  width:20%; 
+  &:hover {
+    animation: wobble;
+    animation-direction: .3s;
+  }
 }
 
 .save-icon,
 .randomize-icon {
-  width: 30px;
   margin: 10px auto;
+  width: 30px;
   &:hover {
     cursor: pointer;
   }
@@ -21,17 +25,16 @@
 .color-controls {
   display: flex;
   flex-direction: column;
+  height: 90%;
   justify-content: flex-start;
   width: 100px;
-  height: 90%;
   & p {
-    margin-top: 10px;
-    width: fit-content;
-    margin: 5px auto 0;
     background-color: rgba(126, 125, 125, .4);
     border-radius: 5px;
-    // line-height: 1.2em;
-    padding: 5px;
     color: white;
+    margin-top: 10px;
+    margin: 5px auto 0;
+    padding: 5px;
+    width: fit-content;
   }
 }
