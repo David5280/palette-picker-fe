@@ -14,8 +14,8 @@ export class NewPaletteForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  allProjects = () => this.props.projects.map(project => {
-    return <option key={project.id} value={project.id}>{project.name}</option>
+  allProjects = () => this.props.projects.map((project, i) => {
+    return <option value={project.id} key={i}>{project.name}</option>
   })
 
   savePalette = (e) => {

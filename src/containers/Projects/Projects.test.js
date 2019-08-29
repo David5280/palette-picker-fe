@@ -11,7 +11,7 @@ import { mockProjects } from '../../mockData';
 
 describe('Projects Container', () => {
   let wrapper;
-
+  let instance;
   beforeEach(() => {
     wrapper = shallow(
       <Projects 
@@ -19,18 +19,23 @@ describe('Projects Container', () => {
         deleteProject={jest.fn()}
       />
     )
+    instance = wrapper.instance()
   })
 
-  it('should match the snapshot', () => {
+  it('HAPPY: Should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it('should map state to props', () => {
+  it('HAPPY: Should map state to props', () => {
     const mockState = {
       projects:mockProjects
     };
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(mockState);
+  })
+
+  it('HAPPY: Should delete the projects, when found', () => {
+     
   })
   
 })

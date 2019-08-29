@@ -71,7 +71,8 @@ export class SingleProject extends Component {
         <>
         <div className='palette-header'>
           <h3 
-            contentEditable={true} 
+            contentEditable={true}
+            className='palette-name-editable' 
             onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
           >
           {palette.name}
@@ -79,6 +80,7 @@ export class SingleProject extends Component {
             <img 
               src={deleteIcon} 
               alt='delete-icon'
+              data-test={`delete-btn-${i}`}
               className='delete-palette-button'
               onClick={()=> this.deletePalette(palette.id)} 
             />

@@ -4,7 +4,6 @@ import { addProject } from '../../actions';
 import { connect } from 'react-redux';
 
 export class NewProjectForm extends Component {
-
   state = {
     projectName: ''
   }
@@ -27,12 +26,17 @@ export class NewProjectForm extends Component {
           <input 
             type='text' 
             placeholder='New Project Name...'
+            data-test="project-name-test-input"
             value={this.state.projectName}
             onChange={this.handleChange}
             name='projectName'
             className='buttons-left project-name-input'
           />
-          <button onClick={(e) => this.createProject(e)} className='buttons-left project-name-input'>Save Project</button>
+          <button 
+          onClick={(e) => this.createProject(e)} 
+          className='buttons-left project-name-input'
+          data-test="create-project-btn-test"
+          >Save Project</button>
         </div>
       </form>
     )
