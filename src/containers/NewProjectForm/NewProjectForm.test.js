@@ -18,5 +18,9 @@ describe('NewProjectForm Container', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  it('should map dispatch to props', () => {
+    
+  })
+
 
 })
