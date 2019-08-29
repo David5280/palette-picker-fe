@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorPreview from '../SingleProject/ColorPreview';
+import ColorPreview from './ColorPreview';
 import { shallow } from 'enzyme';
 
 describe('ColorPreview', () => {

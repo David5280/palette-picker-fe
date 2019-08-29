@@ -71,7 +71,8 @@ export class SingleProject extends Component {
         <>
         <div className='palette-header'>
           <h3 
-            contentEditable={true} 
+            contentEditable={true}
+            className='palette-name-editable' 
             onBlur={(e) => this.patchProject(`palettes/${palette.id}`, { name: e.target.innerText })}
           >
           {palette.name}
