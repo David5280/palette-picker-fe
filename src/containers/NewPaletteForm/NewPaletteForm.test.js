@@ -20,13 +20,13 @@ let wrapper;
   })
 
   it('should map state to props', () => {
-    const mockState = {
+    const state = {
       colors: mockColors,
       projects: mockProjects
     };
 
-    const mappedProps = mapStateToProps(mockState);
-    expect(mappedProps).toEqual(mockState);
+    const mappedProps = mapStateToProps(state);
+    expect(mappedProps).toEqual(state);
     
   })
 

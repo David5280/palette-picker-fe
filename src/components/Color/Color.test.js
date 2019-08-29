@@ -16,10 +16,4 @@ describe('Color Container', () => {
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot()
     });
-    it('should call handleLock when the button is clicked', () => {
-      const colors = ['#frfrfr', '#jtjtjt'];
-      const setup = <Palette colors={colors} />
-    wrapper.find('.locked-icon').simulate('click');
-    expect(wrapper.instance().handleLock).toHaveBeenCalled()
-  });
 });
