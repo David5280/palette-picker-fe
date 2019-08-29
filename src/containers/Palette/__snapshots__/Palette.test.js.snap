@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Palette Container HAPPY: Should match the snap shot 1`] = `ShallowWrapper {}`;
