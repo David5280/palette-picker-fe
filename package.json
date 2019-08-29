@@ -52,13 +52,11 @@
     "babel-jest": "^24.5.0",
     "coveralls": "^3.0.6"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.js",
-      "!src/setupTest.js",
-      "!src/serviceWorker.js",
-      "!src/reducers/rootReducer.js"
+  "jest":{
+    "collectCoverageFrom":[
+      "src/**/**.js",
+      "!src/reducers/rootReducer.js",
+      "!src/index.js"
     ]
   }
 }

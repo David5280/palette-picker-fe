@@ -65,6 +65,7 @@ export class Palette extends Component {
       return <Color 
         hexcode={color} 
         index={i}
+        key={i}
         icon={icon}
         handleLock={this.handleLock} 
         />
@@ -110,13 +111,16 @@ export class Palette extends Component {
         </section>
         <section className='palette-container-controls'>
           <button 
-            className='buttons-left' 
+            className='buttons-left'
+            data-test="make-random-color-btn" 
+            id="make-random-color-btn"
             onClick={() => this.makeRandomColors()}
           >
             Generate new Palette!
           </button>
           {!this.state.showNewProjectForm && <button 
             className='buttons-left'
+            data-test="add-project-btn"
             onClick={() => this.handleChange()}
           >
             Create New Project!
