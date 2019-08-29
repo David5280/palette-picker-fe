@@ -36,8 +36,8 @@ export class App extends React.Component {
           .split(' ')
           .join('')}_${project.id}`} 
           key={project.id}
-          render={()=> <SingleProject id={project.id}
-        />} />
+          render={()=> <SingleProject id={project.id} />
+        } />
     })
   }
 

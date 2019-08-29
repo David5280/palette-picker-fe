@@ -25,7 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "devTest": "react-scripts test --verbose",
+    "devTest": "react-scripts test --verbose --watchAll --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
