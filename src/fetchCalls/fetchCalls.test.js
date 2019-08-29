@@ -8,6 +8,9 @@ describe('fetchCalls', () => {
   })
 
   describe('GET projects', () => {
+    let mockUrl
+    let mockOptions
+    let mockPath
 
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() =>
@@ -18,19 +21,32 @@ describe('fetchCalls', () => {
           )
         })
       );
+      mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/projects`
+      mockOptions = { "body": undefined, "headers": { "Content-Type": "application/json" }, "method": "GET" }
+      mockPath = 'projects'
     });
-
+    
     it('HAPPY: Should call the fetch with the correct arguements', async () => {
-      const mockUrl = `https://pallete-picker-de-pg.herokuapp.com/api/v1/projects`
-      const options = { "body": undefined, "headers": { "Content-Type": "application/json" }, "method": "GET" }
-      const mockPath = 'projects'
-      await serverCall(mockPath);
-      expect(window.fetch).toHaveBeenCalledWith(mockUrl, options);
+      await serverCall(mockPath)
+      expect(window.fetch).toHaveBeenCalledWith(mockUrl, mockOptions);
     });
-
+    // await serverCall(mockPath);
+    
     it('HAPPY: Should return all the projects', async () => {
-
+      const results = await serverCall(mockUrl, mockOptions)
+      expect(results).toEqual(mockData.mockProjects)
     })
+
+    // it('SAD: should return a message if no projects found ', async () => {
+    //   window.fetch = jest.fn().mockImplementation(() =>
+    //     Promise.resolve({
+    //       ok: true,
+    //       json: () => Promise.resolve(
+    //         []
+    //       )
+    //     })
+    //   );
+    // })
 
   })
 
