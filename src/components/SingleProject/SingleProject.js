@@ -91,7 +91,7 @@ export class SingleProject extends Component {
                 paletteID={colorObj.paletteID} 
                 dbKey={colorObj.dbKey}
                 patchProject={this.patchProject}
-                key={colorObj.name + i}
+                key={colorObj.paletteID + i}
               />
             })
             }

@@ -42,7 +42,7 @@ Both PALETTE! PICKER FE & BE were built in 11 days.
 
 OR
 
-Visit the GHpages branch of this application [here!](https://david5280.github.io/palette-picker-fe/#/palette-picker-fe/)
+Simply visit the GHpages branch of this application [here!](https://david5280.github.io/palette-picker-fe/#/palette-picker-fe/)
 
 
 ###  Preview
