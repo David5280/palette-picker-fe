@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/palette-picker-fe/static/css/main.544e9213.chunk.css",
+    "main.js": "/palette-picker-fe/static/js/main.ab0ad4bf.chunk.js",
+    "main.js.map": "/palette-picker-fe/static/js/main.ab0ad4bf.chunk.js.map",
+    "runtime~main.js": "/palette-picker-fe/static/js/runtime~main.54601c64.js",
+    "runtime~main.js.map": "/palette-picker-fe/static/js/runtime~main.54601c64.js.map",
+    "static/js/2.60e2b2e4.chunk.js": "/palette-picker-fe/static/js/2.60e2b2e4.chunk.js",
+    "static/js/2.60e2b2e4.chunk.js.map": "/palette-picker-fe/static/js/2.60e2b2e4.chunk.js.map",
+    "index.html": "/palette-picker-fe/index.html",
+    "precache-manifest.058df7f18b4afe834c971718209bf451.js": "/palette-picker-fe/precache-manifest.058df7f18b4afe834c971718209bf451.js",
+    "service-worker.js": "/palette-picker-fe/service-worker.js",
+    "static/css/main.544e9213.chunk.css.map": "/palette-picker-fe/static/css/main.544e9213.chunk.css.map",
+    "static/media/index.scss": "/palette-picker-fe/static/media/Rosalina.2d92e7ee.ttf",
+    "static/media/locked.svg": "/palette-picker-fe/static/media/locked.798e1aef.svg",
+    "static/media/unlocked.svg": "/palette-picker-fe/static/media/unlocked.21855185.svg"
+  }
+}
