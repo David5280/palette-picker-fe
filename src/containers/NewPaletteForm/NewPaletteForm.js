@@ -62,9 +62,9 @@ export class NewPaletteForm extends Component {
   }
 }
 
-export const mapStateToProps = state => ({
-  colors: state.palettes.colors,
-  projects: state.projects
+export const mapStateToProps = ({colors, projects}) => ({
+  colors,
+  projects
 });
 
 export default connect(mapStateToProps)(NewPaletteForm);

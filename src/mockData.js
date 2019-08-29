@@ -151,3 +151,11 @@ export const singleMockPalette = {
   "created_at": "2019-08-25T21:04:48.835Z",
   "updated_at": "2019-08-25T21:04:48.835Z"
 }
+
+export const mockColors = [
+  '#fffg11',
+  '#faf00g',
+  '#fffg33',
+  '#gsgf90',
+  '#fhhggg',
+]

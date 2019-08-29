@@ -1,16 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { NewPaletteForm, mapStateToProps } from './NewPaletteForm' 
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
-import { mockColors, mockProjects } from '../../mockData';
+import { 
+  Projects, 
+  mapDispatchToProps,
+  mapStateToProps
+} from './Projects'
+import { mockProjects } from '../../mockData';
 
-describe('NewPaletteForm Container', () => {
-let wrapper;
+
+describe('Projects Container', () => {
+  let wrapper;
+
   beforeEach(() => {
     wrapper = shallow(
-      <NewPaletteForm 
-        colors={mockColors} 
+      <Projects 
         projects={mockProjects}
+        deleteProject={jest.fn()}
       />
     )
   })
@@ -21,13 +27,10 @@ let wrapper;
 
   it('should map state to props', () => {
     const mockState = {
-      colors: mockColors,
-      projects: mockProjects
+      projects:mockProjects
     };
-
     const mappedProps = mapStateToProps(mockState);
     expect(mappedProps).toEqual(mockState);
-    
   })
-
+  
 })

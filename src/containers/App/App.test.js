@@ -8,10 +8,10 @@ describe('App Container', () => {
   beforeEach(() => {
     wrapper = shallow(
       <App 
-      projects={mockProjects} 
-      retrieveProjects={jest.fn()}
-      loadComplete={jest.fn()}
-      hasErrored={jest.fn()}
+        projects={mockProjects} 
+        retrieveProjects={jest.fn()}
+        loadComplete={jest.fn()}
+        hasErrored={jest.fn()}
       />
     )
 
@@ -21,8 +21,13 @@ describe('App Container', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should do something', () => {
-
+  it('should mapStateToProps', () => {
+    const mockState = {
+      projects: mockProjects,
+    }
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(mockState);
   })
+
 })
 
