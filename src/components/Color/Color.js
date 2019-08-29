@@ -2,7 +2,6 @@ import React from 'react'
 
 const Color = (props) => {
   const { hexcode, index, handleLock, icon } = props;
-  console.log(icon)
   return (
     <div 
       className='single-color'
@@ -10,8 +9,10 @@ const Color = (props) => {
         {backgroundColor: `#${hexcode}`}
       }
     >
+    <div style={{borderRadius: '100px', margin:'auto', backgroundColor:'#'+hexcode, width:'100px'}}>
       <p className='color-info'>Color {index + 1}: </p>
       <p>#{hexcode.toUpperCase()}</p>
+    </div>
       <img 
         src={`${icon}`} 
         alt='locked-icon' 

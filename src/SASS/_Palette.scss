@@ -11,6 +11,7 @@
   margin: 20px auto;
   max-width: 1500px;
   min-width: 700px;
+  overflow: scroll;
   width: 90%;
   & .single-color {
     animation-duration: 1s;
@@ -22,21 +23,44 @@
     margin-bottom: auto;
     overflow: hidden;
     width: 20%;
+    text-align: center;
     &:hover {
       border: 2px solid black;
       box-shadow: 0px 0px 20px;
       transform: scale(1.05);
       transition: all .1s ease-in-out;
     }
+    & h2 {
+      margin-top: 5px;
+    }
   }
-  & .generate-btn {
+  & .buttons-left {
     border-radius: 5px;
     border: 1px solid black;
     display: block;
-    height: 40px;
+    height: 30px;
     margin: auto;
-    width: 200px;
+    width: 140px;
   } 
+}
+
+.saved-projects-title {
+  text-decoration: underline;
+  display: inline-block;
+  text-align: center;
+}
+
+.project-name-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 30px;
+  margin: 4px auto;
+  &.buttons-left {
+    height: 16px;
+    margin: 4px;
+    padding: 0 4px;
+  }
 }
 
 .color-info {
@@ -47,9 +71,9 @@
   height: 40px;
   &:hover {
     cursor: pointer;
-    fill: red;
   }
 }
+
 .customize-palette-input {
   border-radius: 5px;
   border: 1px solid black;
